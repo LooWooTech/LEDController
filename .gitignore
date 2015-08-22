@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/LoowooTech.LEDController.Client/bin/Debug
+/LoowooTech.LEDController.Client/obj/Debug
+/LoowooTech.LEDController.Server/bin/Debug
+/LoowooTech.LEDController.Server/obj/Debug
+*.suo
+/LoowooTech.LEDController.Server.API/bin/Debug
+/LoowooTech.LEDController.Server.API/obj/Debug
+/WcfService1/obj/Debug
+*.user
