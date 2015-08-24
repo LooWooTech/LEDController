@@ -10,3 +10,7 @@
 /LoowooTech.LEDController.Server.API/obj/Debug
 *.suo
 *.user
+/LoowooTech.LEDController.Model/bin/Debug
+/LoowooTech.LEDController.Model/obj/Debug
+/LoowooTech.LEDController.Server/bin
+/LoowooTech.LEDController.Server.API/bin

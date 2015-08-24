@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoowooTech.LEDController.Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoowooTech.LEDController.Client", "LoowooTech.LEDController.Client\LoowooTech.LEDController.Client.csproj", "{D8D843C5-9D0D-43AC-B6B4-2A566B9A8C02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoowooTech.LEDController.Server.API", "LoowooTech.LEDController.Server.API\LoowooTech.LEDController.Server.API.csproj", "{416229D2-6F9B-4AD2-AC10-D0DF534A3E88}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoowooTech.LEDController.Model", "LoowooTech.LEDController.Model\LoowooTech.LEDController.Model.csproj", "{86BB4631-9B4F-4ADB-9E02-39E191EC4062}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{D8D843C5-9D0D-43AC-B6B4-2A566B9A8C02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8D843C5-9D0D-43AC-B6B4-2A566B9A8C02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8D843C5-9D0D-43AC-B6B4-2A566B9A8C02}.Release|Any CPU.Build.0 = Release|Any CPU
-		{416229D2-6F9B-4AD2-AC10-D0DF534A3E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{416229D2-6F9B-4AD2-AC10-D0DF534A3E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{416229D2-6F9B-4AD2-AC10-D0DF534A3E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{416229D2-6F9B-4AD2-AC10-D0DF534A3E88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86BB4631-9B4F-4ADB-9E02-39E191EC4062}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86BB4631-9B4F-4ADB-9E02-39E191EC4062}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86BB4631-9B4F-4ADB-9E02-39E191EC4062}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86BB4631-9B4F-4ADB-9E02-39E191EC4062}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
