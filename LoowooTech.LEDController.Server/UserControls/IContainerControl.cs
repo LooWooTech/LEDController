@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LoowooTech.LEDController.Server.UserControls
 {
-    public interface IUserControl
+    public interface IContainerControl
     {
         void SaveData();
     }

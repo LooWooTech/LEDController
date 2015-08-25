@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alignment.cs" />
     <Compile Include="ClientButton.cs" />
     <Compile Include="ClientWindow.cs" />
     <Compile Include="Command.cs" />

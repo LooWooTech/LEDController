@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
-namespace LoowooTech.LEDController.Server.Models
+namespace LoowooTech.LEDController.Server.Managers
 {
     [Table("Data")]
     public class Data
@@ -23,7 +23,8 @@ namespace LoowooTech.LEDController.Server.Models
 
         public DateTime CreateTime { get; set; }
 
-        public byte[] Data { get; set; }
+        [Column("Data")]
+        public byte[] DataBytes { get; set; }
 
         private object _data;
 
@@ -33,7 +34,7 @@ namespace LoowooTech.LEDController.Server.Models
             {
                 if (_data == null)
                 {
-                    var json = Encoding.UTF8.GetString(Data);
+                    var json = Encoding.UTF8.GetString(DataBytes);
                     _data = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(json);
                 }
             }
@@ -46,12 +47,12 @@ namespace LoowooTech.LEDController.Server.Models
             _data = obj;
             if (obj == null)
             {
-                Data = null;
+                DataBytes = null;
             }
             else
             {
                 var json = Newtonsoft.Json.JsonConvert.SerializeObject(obj);
-                Data = Encoding.UTF8.GetBytes(json);
+                DataBytes = Encoding.UTF8.GetBytes(json);
             }
         }
 

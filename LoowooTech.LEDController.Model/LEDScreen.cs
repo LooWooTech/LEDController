@@ -7,6 +7,11 @@ namespace LoowooTech.LEDController.Models
 {
     public class LEDScreen
     {
+        public LEDScreen()
+        {
+            ID = Guid.NewGuid().ToString();
+        }
+
         public string ID { get; set; }
 
         public string Name { get; set; }

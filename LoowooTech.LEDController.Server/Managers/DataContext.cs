@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 
-namespace LoowooTech.LEDController.Server.Models
+namespace LoowooTech.LEDController.Server.Managers
 {
     public class DataContext : DbContext
     {

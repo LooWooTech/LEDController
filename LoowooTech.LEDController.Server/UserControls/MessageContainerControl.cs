@@ -11,9 +11,9 @@ using System.Threading;
 
 namespace LoowooTech.LEDController.Server.UserControls
 {
-    public partial class MessageControl : UserControl, IUserControl
+    public partial class MessageContainerControl : UserControl, IContainerControl
     {
-        public MessageControl()
+        public MessageContainerControl()
         {
             InitializeComponent();
         }

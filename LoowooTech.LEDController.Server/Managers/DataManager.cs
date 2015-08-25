@@ -1,5 +1,4 @@
 ﻿using LoowooTech.LEDController.Model;
-using LoowooTech.LEDController.Server.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +15,7 @@ namespace LoowooTech.LEDController.Server.Managers
                 var entity = db.Datas.FirstOrDefault(e => e.ID == model.ID);
                 if (entity != null)
                 {
-                    entity.Data = model.Data;
+                    entity.DataBytes = model.DataBytes;
                 }
                 else
                 {

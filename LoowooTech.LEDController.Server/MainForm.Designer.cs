@@ -37,7 +37,7 @@
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.messageControl1 = new LoowooTech.LEDController.Server.UserControls.MessageControl();
+            this.messageControl1 = new LoowooTech.LEDController.Server.UserControls.MessageContainerControl();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -149,7 +149,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.Panel panel1;
-        private UserControls.MessageControl messageControl1;
+        private UserControls.MessageContainerControl messageControl1;
     }
 }
 

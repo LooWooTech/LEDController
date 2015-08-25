@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace LoowooTech.LEDController.Models
+namespace LoowooTech.LEDController.Model
 {
     public class ClientWindow
     {
@@ -23,10 +23,18 @@ namespace LoowooTech.LEDController.Models
 
         public int Height { get; set; }
 
-        public int X { get; set; }
+        public int MarginLeft { get; set; }
 
-        public int Y { get; set; }
+        public int MarginTop { get; set; }
+
+        public HorizontalAlignment HorizonalAlignment { get; set; }
+
+        public VerticalAlignment VerticalAlignment { get; set; }
 
         public TextAnimation TextAnimation { get; set; }
+
+        public string FontFamily { get; set; }
+
+        public string FontSize { get; set; }
     }
 }
