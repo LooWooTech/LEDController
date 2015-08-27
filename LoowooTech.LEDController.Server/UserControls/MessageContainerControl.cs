@@ -13,17 +13,35 @@ namespace LoowooTech.LEDController.Server.UserControls
 {
     public partial class MessageContainerControl : UserControl, IContainerControl
     {
+        private DataManager DataManager = new DataManager();
+
         public MessageContainerControl()
         {
             InitializeComponent();
+            BindData();
+        }
+
+        public void BindData()
+        {
+            var data = DataManager.GetList<Model.Message>();
+            foreach (var msg in data)
+            {
+                AddRow(msg);
+            }
+        }
+
+        private void AddRow(Model.Message msg)
+        {
+            var rowIndex = dataGridView1.Rows.Add();
+            var row = dataGridView1.Rows[rowIndex];
+            row.Cells["Content"].Value = msg.Content;
+            dataGridView1.CurrentCell = row.Cells[0];
+            dataGridView1.BeginEdit(false);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var rowIndex = dataGridView1.Rows.Add();
-            var row = dataGridView1.Rows[rowIndex];
-            dataGridView1.CurrentCell = row.Cells[0];
-            dataGridView1.BeginEdit(false);
+            AddRow(new Model.Message());
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -42,14 +60,15 @@ namespace LoowooTech.LEDController.Server.UserControls
             var list = new List<Model.Message>();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                var content = row.Cells[1];
-                if (content != null && content.ToString().Length > 0)
+                var content = row.Cells["Content"];
+                if (content.Value != null)
                 {
-                    var msg = new Model.Message { Content = content.ToString() };
+                    var msg = new Model.Message { Content = content.Value.ToString() };
                     list.Add(msg);
                 }
             }
             DataManager.Save(list);
+            MessageBox.Show("保存成功");
         }
 
         private void btnSave_Click(object sender, EventArgs e)

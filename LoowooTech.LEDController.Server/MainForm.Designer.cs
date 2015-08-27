@@ -30,110 +30,146 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.messageControl1 = new LoowooTech.LEDController.Server.UserControls.MessageContainerControl();
+            this.btnMessage = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnClientButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnLEDScreen = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnClientWindow = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnUser = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSystemConfig = new System.Windows.Forms.ToolStripButton();
+            this.container = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
+            this.toolStrip1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripButton5,
-            this.toolStripButton6});
+            this.btnMessage,
+            this.toolStripSeparator3,
+            this.btnClientButton,
+            this.toolStripSeparator2,
+            this.btnLEDScreen,
+            this.toolStripSeparator4,
+            this.btnClientWindow,
+            this.toolStripSeparator1,
+            this.btnUser,
+            this.toolStripSeparator5,
+            this.btnSystemConfig});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(584, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(584, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // btnMessage
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButton1.Text = "消息管理";
+            this.btnMessage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnMessage.Image = ((System.Drawing.Image)(resources.GetObject("btnMessage.Image")));
+            this.btnMessage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnMessage.Name = "btnMessage";
+            this.btnMessage.Size = new System.Drawing.Size(69, 24);
+            this.btnMessage.Text = "消息管理";
+            this.btnMessage.Click += new System.EventHandler(this.btnMessage_Click);
             // 
-            // toolStripButton2
+            // toolStripSeparator3
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButton2.Text = "按钮配置";
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
             // 
-            // toolStripButton3
+            // btnClientButton
             // 
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButton3.Text = "屏幕配置";
+            this.btnClientButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnClientButton.Image = ((System.Drawing.Image)(resources.GetObject("btnClientButton.Image")));
+            this.btnClientButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnClientButton.Name = "btnClientButton";
+            this.btnClientButton.Size = new System.Drawing.Size(69, 24);
+            this.btnClientButton.Text = "按钮配置";
+            this.btnClientButton.Click += new System.EventHandler(this.btnClientButton_Click);
             // 
-            // toolStripButton4
+            // toolStripSeparator2
             // 
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButton4.Text = "窗口配置";
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
-            // toolStripButton5
+            // btnLEDScreen
             // 
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButton5.Text = "用户管理";
+            this.btnLEDScreen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnLEDScreen.Image = ((System.Drawing.Image)(resources.GetObject("btnLEDScreen.Image")));
+            this.btnLEDScreen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnLEDScreen.Name = "btnLEDScreen";
+            this.btnLEDScreen.Size = new System.Drawing.Size(69, 24);
+            this.btnLEDScreen.Text = "屏幕配置";
+            this.btnLEDScreen.Click += new System.EventHandler(this.btnLEDScreen_Click);
             // 
-            // toolStripButton6
+            // toolStripSeparator4
             // 
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButton6.Text = "系统配置";
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
             // 
-            // panel1
+            // btnClientWindow
             // 
-            this.panel1.Controls.Add(this.messageControl1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 25);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(584, 336);
-            this.panel1.TabIndex = 1;
+            this.btnClientWindow.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnClientWindow.Image = ((System.Drawing.Image)(resources.GetObject("btnClientWindow.Image")));
+            this.btnClientWindow.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnClientWindow.Name = "btnClientWindow";
+            this.btnClientWindow.Size = new System.Drawing.Size(69, 24);
+            this.btnClientWindow.Text = "窗口配置";
+            this.btnClientWindow.Click += new System.EventHandler(this.btnClientWindow_Click);
             // 
-            // messageControl1
+            // toolStripSeparator1
             // 
-            this.messageControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.messageControl1.Location = new System.Drawing.Point(0, 0);
-            this.messageControl1.Name = "messageControl1";
-            this.messageControl1.Size = new System.Drawing.Size(584, 336);
-            this.messageControl1.TabIndex = 0;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
+            // btnUser
+            // 
+            this.btnUser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnUser.Image = ((System.Drawing.Image)(resources.GetObject("btnUser.Image")));
+            this.btnUser.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnUser.Name = "btnUser";
+            this.btnUser.Size = new System.Drawing.Size(69, 24);
+            this.btnUser.Text = "用户管理";
+            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
+            // 
+            // btnSystemConfig
+            // 
+            this.btnSystemConfig.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnSystemConfig.Image = ((System.Drawing.Image)(resources.GetObject("btnSystemConfig.Image")));
+            this.btnSystemConfig.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSystemConfig.Name = "btnSystemConfig";
+            this.btnSystemConfig.Size = new System.Drawing.Size(69, 24);
+            this.btnSystemConfig.Text = "系统配置";
+            this.btnSystemConfig.Click += new System.EventHandler(this.btnSystemConfig_Click);
+            // 
+            // container
+            // 
+            this.container.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.container.Location = new System.Drawing.Point(0, 27);
+            this.container.Name = "container";
+            this.container.Size = new System.Drawing.Size(584, 334);
+            this.container.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 361);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.container);
             this.Controls.Add(this.toolStrip1);
             this.Name = "MainForm";
             this.Text = "LED主控";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,14 +178,19 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripButton btnMessage;
+        private System.Windows.Forms.ToolStripButton btnClientButton;
+        private System.Windows.Forms.ToolStripButton btnLEDScreen;
+        private System.Windows.Forms.ToolStripButton btnClientWindow;
+        private System.Windows.Forms.ToolStripButton btnUser;
+        private System.Windows.Forms.ToolStripButton btnSystemConfig;
+        private System.Windows.Forms.Panel container;
         private UserControls.MessageContainerControl messageControl1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     }
 }
 

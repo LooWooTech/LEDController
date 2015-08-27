@@ -22,7 +22,16 @@ namespace LoowooTech.LEDController.Model
 
     public class ClientButton
     {
-        public string Name { get; set; }
+        [Newtonsoft.Json.JsonIgnore]
+        public string Name
+        {
+            get
+            {
+                var field = typeof(ClientButtonType).GetField(Type.ToString());
+                var attr = Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute)) as DescriptionAttribute;
+                return attr == null ? Type.ToString() : attr.Description;
+            }
+        }
 
         public ClientButtonType Type { get; set; }
 

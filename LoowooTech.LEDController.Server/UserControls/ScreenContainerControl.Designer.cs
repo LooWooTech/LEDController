@@ -38,7 +38,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Width = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Height = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
@@ -119,7 +118,6 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Number,
-            this.Name,
             this.Width,
             this.Height});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -134,13 +132,8 @@
             // 
             // Number
             // 
-            this.Number.HeaderText = "序号";
+            this.Number.HeaderText = "编号";
             this.Number.Name = "Number";
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "名称";
-            this.Name.Name = "Name";
             // 
             // Width
             // 
@@ -158,6 +151,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.toolStrip1);
+            this.Name = "ScreenContainerControl";
             this.Size = new System.Drawing.Size(580, 320);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -179,7 +173,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Width;
         private System.Windows.Forms.DataGridViewTextBoxColumn Height;
     }

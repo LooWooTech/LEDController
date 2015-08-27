@@ -8,7 +8,7 @@ namespace LoowooTech.LEDController.Server.Managers
 {
     public class DataManager
     {
-        private static void SaveDataModel(Data model)
+        private void SaveDataModel(Data model)
         {
             using (var db = new DataContext())
             {
@@ -25,7 +25,7 @@ namespace LoowooTech.LEDController.Server.Managers
             }
         }
 
-        private static Data GetDataModel<T>()
+        private Data GetDataModel<T>()
         {
             using (var db = new DataContext())
             {
@@ -34,20 +34,23 @@ namespace LoowooTech.LEDController.Server.Managers
             }
         }
 
-        public static List<T> GetList<T>()
+        public List<T> GetList<T>()
         {
             var model = GetDataModel<T>();
             return model == null ? new List<T>() : model.GetObject<List<T>>();
         }
 
-        public static void Save<T>(List<T> list)
+        public void Save<T>(List<T> list)
         {
-            var model = GetDataModel<T>() ?? new Data();
+            var model = GetDataModel<T>() ?? new Data
+            {
+                Type = GetType<T>()
+            };
             model.SetObject(list);
             SaveDataModel(model);
         }
 
-        private static DataType GetType<T>()
+        private DataType GetType<T>()
         {
             var typeName = typeof(T).Name;
             var enumType = typeof(DataType);

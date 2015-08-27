@@ -3,21 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace LoowooTech.LEDController.Model
 {
     public class ClientWindow
     {
-        public ClientWindow()
-        {
-            ClientId = Guid.NewGuid().ToString();
-        }
-
-        public string ClientId { get; set; }
+        public string ID { get; set; }
 
         public string ScreenId { get; set; }
-
-        public string Name { get; set; }
 
         public int Width { get; set; }
 
@@ -27,7 +22,7 @@ namespace LoowooTech.LEDController.Model
 
         public int MarginTop { get; set; }
 
-        public HorizontalAlignment HorizonalAlignment { get; set; }
+        public HorizontalAlignment HorizontalAlignment { get; set; }
 
         public VerticalAlignment VerticalAlignment { get; set; }
 
@@ -35,6 +30,6 @@ namespace LoowooTech.LEDController.Model
 
         public string FontFamily { get; set; }
 
-        public string FontSize { get; set; }
+        public int FontSize { get; set; }
     }
 }

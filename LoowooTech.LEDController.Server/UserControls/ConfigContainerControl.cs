@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace LoowooTech.LEDController.Server.UserControls
 {
-    public partial class ButtonContainerControl : UserControl, IContainerControl
+    public partial class ConfigContainerControl : UserControl, IContainerControl
     {
-        public ButtonContainerControl()
+        public ConfigContainerControl()
         {
             InitializeComponent();
         }

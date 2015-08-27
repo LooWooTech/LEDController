@@ -1,6 +1,6 @@
 ﻿namespace LoowooTech.LEDController.Server.UserControls
 {
-    partial class WindowContainerControl
+    partial class ConfigContainerControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,27 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WindowContainerControl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigContainerControl));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ClientId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ScreenId = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Height = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Width = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MarinLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MarginTop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FontFamily = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.FontSize = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.HorizontalAlignment = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.VerticalAlignment = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +52,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(580, 25);
-            this.toolStrip1.TabIndex = 2;
+            this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btnAdd
@@ -74,6 +63,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(36, 22);
             this.btnAdd.Text = "添加";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // toolStripSeparator1
             // 
@@ -88,6 +78,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(36, 22);
             this.btnSave.Text = "保存";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // toolStripSeparator2
             // 
@@ -102,141 +93,43 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(36, 22);
             this.btnDelete.Text = "删除";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 25);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(580, 295);
-            this.panel2.TabIndex = 3;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ClientId,
-            this.ScreenId,
-            this.Height,
-            this.Width,
-            this.MarinLeft,
-            this.MarginTop,
-            this.FontFamily,
-            this.FontSize,
-            this.HorizontalAlignment,
-            this.VerticalAlignment});
+            this.Content});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 25);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(50);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(2);
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(580, 295);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.TabIndex = 3;
             // 
-            // ClientId
+            // Content
             // 
-            this.ClientId.HeaderText = "窗口编号";
-            this.ClientId.Name = "ClientId";
-            this.ClientId.Width = 78;
+            this.Content.HeaderText = "消息内容";
+            this.Content.Name = "Content";
             // 
-            // ScreenId
-            // 
-            this.ScreenId.HeaderText = "屏幕编号";
-            this.ScreenId.Name = "ScreenId";
-            this.ScreenId.Width = 59;
-            // 
-            // Height
-            // 
-            this.Height.HeaderText = "高度";
-            this.Height.Name = "Height";
-            this.Height.Width = 54;
-            // 
-            // Width
-            // 
-            this.Width.HeaderText = "宽度";
-            this.Width.Name = "Width";
-            this.Width.Width = 54;
-            // 
-            // MarinLeft
-            // 
-            this.MarinLeft.HeaderText = "左边距";
-            this.MarinLeft.Name = "MarinLeft";
-            this.MarinLeft.Width = 66;
-            // 
-            // MarginTop
-            // 
-            this.MarginTop.HeaderText = "上边距";
-            this.MarginTop.Name = "MarginTop";
-            this.MarginTop.Width = 66;
-            // 
-            // FontFamily
-            // 
-            this.FontFamily.HeaderText = "字体";
-            this.FontFamily.Items.AddRange(new object[] {
-            "宋体",
-            "楷体"});
-            this.FontFamily.Name = "FontFamily";
-            this.FontFamily.Width = 35;
-            // 
-            // FontSize
-            // 
-            this.FontSize.HeaderText = "字体大小";
-            this.FontSize.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.FontSize.Name = "FontSize";
-            this.FontSize.Width = 59;
-            // 
-            // HorizontalAlignment
-            // 
-            this.HorizontalAlignment.HeaderText = "水平对齐";
-            this.HorizontalAlignment.Items.AddRange(new object[] {
-            "居左",
-            "居中",
-            "居右"});
-            this.HorizontalAlignment.Name = "HorizontalAlignment";
-            this.HorizontalAlignment.Width = 59;
-            // 
-            // VerticalAlignment
-            // 
-            this.VerticalAlignment.HeaderText = "垂直对齐";
-            this.VerticalAlignment.Items.AddRange(new object[] {
-            "居上",
-            "居中",
-            "居下"});
-            this.VerticalAlignment.Name = "VerticalAlignment";
-            this.VerticalAlignment.Width = 59;
-            // 
-            // WindowContainerControl
+            // ConfigContainerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "WindowContainerControl";
+            this.Name = "ConfigContainerControl";
             this.Size = new System.Drawing.Size(580, 320);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -251,17 +144,7 @@
         private System.Windows.Forms.ToolStripButton btnSave;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton btnDelete;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClientId;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ScreenId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Height;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Width;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MarinLeft;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MarginTop;
-        private System.Windows.Forms.DataGridViewComboBoxColumn FontFamily;
-        private System.Windows.Forms.DataGridViewComboBoxColumn FontSize;
-        private System.Windows.Forms.DataGridViewComboBoxColumn HorizontalAlignment;
-        private System.Windows.Forms.DataGridViewComboBoxColumn VerticalAlignment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Content;
     }
 }

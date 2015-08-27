@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LoowooTech.LEDController.Models
+namespace LoowooTech.LEDController.Model
 {
     public class LEDScreen
     {
         public LEDScreen()
         {
-            ID = Guid.NewGuid().ToString();
         }
 
         public string ID { get; set; }
