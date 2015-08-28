@@ -13,16 +13,18 @@ namespace LoowooTech.LEDController.Server.UserControls
 {
     public partial class ScreenContainerControl : UserControl, IContainerControl
     {
-        private DataManager DataManager = new DataManager();
+        private DataManager DataManager = DataManager.Instance;
 
         public ScreenContainerControl()
         {
             InitializeComponent();
-            BindData();
         }
 
+        private bool _hasBind;
         public void BindData()
         {
+            if (_hasBind) return;
+            _hasBind = true;
             var data = DataManager.GetList<LEDScreen>();
             foreach (var item in data)
             {
@@ -81,12 +83,12 @@ namespace LoowooTech.LEDController.Server.UserControls
                 catch { }
             }
             DataManager.Save(list);
-            MessageBox.Show("保存成功");
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveData();
+            MessageBox.Show("保存成功");
         }
     }
 }

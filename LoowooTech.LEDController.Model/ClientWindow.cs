@@ -10,6 +10,15 @@ namespace LoowooTech.LEDController.Model
 {
     public class ClientWindow
     {
+        public ClientWindow()
+        {
+            FontSize = 4;
+            FontFamily = "宋体";
+            TextAnimation = Model.TextAnimation.A;
+            HorizontalAlignment = HorizontalAlignment.Left;
+            VerticalAlignment = System.Windows.Forms.VisualStyles.VerticalAlignment.Center;
+        }
+
         public string ID { get; set; }
 
         public string ScreenId { get; set; }

@@ -37,7 +37,7 @@
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Width = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Height = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
@@ -117,7 +117,7 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Number,
+            this.ID,
             this.Width,
             this.Height});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -130,10 +130,10 @@
             this.dataGridView1.Size = new System.Drawing.Size(580, 295);
             this.dataGridView1.TabIndex = 2;
             // 
-            // Number
+            // ID
             // 
-            this.Number.HeaderText = "编号";
-            this.Number.Name = "Number";
+            this.ID.HeaderText = "编号";
+            this.ID.Name = "ID";
             // 
             // Width
             // 
@@ -172,7 +172,7 @@
         private System.Windows.Forms.ToolStripButton btnDelete;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Width;
         private System.Windows.Forms.DataGridViewTextBoxColumn Height;
     }

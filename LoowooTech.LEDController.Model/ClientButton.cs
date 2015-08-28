@@ -8,33 +8,23 @@ namespace LoowooTech.LEDController.Model
 {
     public enum ClientButtonType
     {
-        [Description("开始")]
-        Start,
-        [Description("暂停")]
-        Pause,
-        [Description("下班")]
-        //GetOffWork,
-        //[Description("倒计时")]
-        Countdown,
-        [Description("故障")]
-        Error,
+        普通,
+        开始,
+        暂停,
+        下班,
+        故障,
+        倒计时
     }
 
     public class ClientButton
     {
-        [Newtonsoft.Json.JsonIgnore]
-        public string Name
+        public ClientButton()
         {
-            get
-            {
-                var field = typeof(ClientButtonType).GetField(Type.ToString());
-                var attr = Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute)) as DescriptionAttribute;
-                return attr == null ? Type.ToString() : attr.Description;
-            }
+            Type = ClientButtonType.普通;
         }
 
         public ClientButtonType Type { get; set; }
 
-        public string ContentFormat { get; set; }
+        public string Message { get; set; }
     }
 }

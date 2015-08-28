@@ -41,6 +41,7 @@
             this.btnUser = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSystemConfig = new System.Windows.Forms.ToolStripButton();
+            this.btnLogout = new System.Windows.Forms.ToolStripButton();
             this.container = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -48,6 +49,7 @@
             // toolStrip1
             // 
             this.toolStrip1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnMessage,
             this.toolStripSeparator3,
@@ -59,7 +61,8 @@
             this.toolStripSeparator1,
             this.btnUser,
             this.toolStripSeparator5,
-            this.btnSystemConfig});
+            this.btnSystemConfig,
+            this.btnLogout});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(584, 27);
@@ -151,6 +154,11 @@
             this.btnSystemConfig.Text = "系统配置";
             this.btnSystemConfig.Click += new System.EventHandler(this.btnSystemConfig_Click);
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(23, 24);
+            // 
             // container
             // 
             this.container.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -191,6 +199,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripButton btnLogout;
     }
 }
 

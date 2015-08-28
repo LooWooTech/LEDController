@@ -119,7 +119,7 @@
             // 
             // Type
             // 
-            this.Type.FillWeight = 101.5228F;
+            this.Type.FillWeight = 48.73094F;
             this.Type.HeaderText = "按钮类型";
             this.Type.Items.AddRange(new object[] {
             "开始",
@@ -130,7 +130,7 @@
             // 
             // Message
             // 
-            this.Message.FillWeight = 98.47716F;
+            this.Message.FillWeight = 151.269F;
             this.Message.HeaderText = "消息内容";
             this.Message.Name = "Message";
             // 

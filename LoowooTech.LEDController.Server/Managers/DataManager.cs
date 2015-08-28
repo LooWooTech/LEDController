@@ -8,6 +8,11 @@ namespace LoowooTech.LEDController.Server.Managers
 {
     public class DataManager
     {
+        private DataManager()
+        { }
+
+        public readonly static DataManager Instance = new DataManager();
+
         private void SaveDataModel(Data model)
         {
             using (var db = new DataContext())

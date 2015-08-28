@@ -14,14 +14,18 @@ namespace LoowooTech.LEDController.Server.UserControls
     public partial class AdminContainerControl : UserControl, IContainerControl
     {
 
-        private DataManager DataManager = new DataManager();
+        private DataManager DataManager = DataManager.Instance;
         public AdminContainerControl()
         {
             InitializeComponent();
         }
 
+        private bool _hasBind;
         public void BindData()
         {
+            if (_hasBind) return;
+            _hasBind = true;
+            (dataGridView1.Columns["Role"] as DataGridViewComboBoxColumn).DataSource = Enum.GetNames(typeof(Role));
             var data = DataManager.GetList<Admin>();
             foreach (var item in data)
             {
@@ -36,7 +40,7 @@ namespace LoowooTech.LEDController.Server.UserControls
             var row = dataGridView1.Rows[rowIndex];
             row.Cells["Username"].Value = model.Username;
             row.Cells["Password"].Value = model.Password;
-            row.Cells["Role"].Value = model.Role;
+            row.Cells["Role"].Value = model.Role.ToString();
 
             dataGridView1.CurrentCell = row.Cells[0];
             dataGridView1.BeginEdit(false);
@@ -75,12 +79,12 @@ namespace LoowooTech.LEDController.Server.UserControls
                 catch { }
             }
             DataManager.Save(list);
-            MessageBox.Show("保存成功");
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveData();
+            MessageBox.Show("保存成功");
         }
     }
 }

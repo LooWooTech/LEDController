@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using LoowooTech.LEDController.Server.Managers;
 
 namespace LoowooTech.LEDController.Server.UserControls
 {
@@ -16,9 +17,18 @@ namespace LoowooTech.LEDController.Server.UserControls
             InitializeComponent();
         }
 
+        private DataManager DataManager = DataManager.Instance;
+
+        private bool _hasBind;
+        public void BindData()
+        {
+            if (_hasBind) return;
+            _hasBind = true;
+        }
+
         public void SaveData()
         {
-            throw new NotImplementedException();
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -35,5 +45,6 @@ namespace LoowooTech.LEDController.Server.UserControls
         {
 
         }
+
     }
 }

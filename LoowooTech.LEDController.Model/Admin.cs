@@ -16,8 +16,8 @@ namespace LoowooTech.LEDController.Model
 
     public enum Role
     {
-        Admin1,
-        Admin2,
-        Admin3,
+        前台管理员,
+        后台管理员,
+        系统管理员,
     }
 }

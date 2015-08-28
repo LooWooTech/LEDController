@@ -7,6 +7,7 @@ namespace LoowooTech.LEDController.Server.UserControls
 {
     public interface IContainerControl
     {
+        void BindData();
         void SaveData();
     }
 }

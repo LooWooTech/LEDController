@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace LoowooTech.LEDController.Server
@@ -15,6 +16,7 @@ namespace LoowooTech.LEDController.Server
         public MainForm()
         {
             InitializeComponent();
+            AddContainer(MessageContainerControl);
         }
 
         private MessageContainerControl MessageContainerControl = new MessageContainerControl();
@@ -26,13 +28,21 @@ namespace LoowooTech.LEDController.Server
 
         private void AddContainer(LoowooTech.LEDController.Server.UserControls.IContainerControl control)
         {
-            if (container.Controls.Count == 1)
+            new Thread(() =>
             {
-                var currentControl = (UserControls.IContainerControl)container.Controls[0];
-                currentControl.SaveData();
-            }
-            container.Controls.RemoveAt(0);
-            container.Controls.Add((UserControl)control);
+                container.Invoke(new Action(() =>
+                {
+                    if (container.Controls.Count == 1)
+                    {
+                        var currentControl = (UserControls.IContainerControl)container.Controls[0];
+                        currentControl.SaveData();
+                        container.Controls.RemoveAt(0);
+                    }
+                    container.Controls.Add((UserControl)control);
+                    ((UserControl)control).Dock = DockStyle.Fill;
+                    control.BindData();
+                }));
+            }).Start();
         }
 
         private void btnMessage_Click(object sender, EventArgs e)
@@ -65,5 +75,10 @@ namespace LoowooTech.LEDController.Server
             AddContainer(ConfigContainerControl);
         }
 
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            Application.Exit();
+        }
     }
 }

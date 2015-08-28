@@ -13,16 +13,19 @@ namespace LoowooTech.LEDController.Server.UserControls
 {
     public partial class MessageContainerControl : UserControl, IContainerControl
     {
-        private DataManager DataManager = new DataManager();
+        private DataManager DataManager = DataManager.Instance;
 
         public MessageContainerControl()
         {
             InitializeComponent();
-            BindData();
         }
 
+        private bool _hasBind;
         public void BindData()
         {
+            if (_hasBind) return;
+            _hasBind = true;
+
             var data = DataManager.GetList<Model.Message>();
             foreach (var msg in data)
             {
@@ -68,12 +71,12 @@ namespace LoowooTech.LEDController.Server.UserControls
                 }
             }
             DataManager.Save(list);
-            MessageBox.Show("保存成功");
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveData();
+            MessageBox.Show("保存成功");
         }
     }
 }
