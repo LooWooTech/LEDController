@@ -78,7 +78,25 @@ namespace LoowooTech.LEDController.Server
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-            Application.Exit();
+            if (!isLogout)
+            {
+                Application.Exit();
+            }
+        }
+
+        private bool isLogout;
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            isLogout = true;
+            this.Close();
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is LoginForm)
+                {
+                    ((LoginForm)form).Logout();
+                    form.Show();
+                }
+            }
         }
     }
 }

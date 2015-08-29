@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIService.cs" />
+    <Compile Include="IAPIService.cs" />
     <Compile Include="ILEDAdapter.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -106,7 +107,6 @@
     <Compile Include="Managers\DataContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SocketServer.cs" />
     <Compile Include="UserControls\AdminContainerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

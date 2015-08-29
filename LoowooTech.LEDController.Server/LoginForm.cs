@@ -37,6 +37,7 @@ namespace LoowooTech.LEDController.Server
         {
             var username = txtUsername.Text;
             var password = txtPassword.Text;
+
             if (string.IsNullOrEmpty(username))
             {
                 txtUsername.Focus();
@@ -58,6 +59,8 @@ namespace LoowooTech.LEDController.Server
                         this.Hide();
                         var mainForm = new MainForm();
                         mainForm.Show();
+                        txtUsername.Text = null;
+                        txtPassword.Text = null;
                     }
                     else
                     {
@@ -73,6 +76,26 @@ namespace LoowooTech.LEDController.Server
 
             var admins = DataManager.GetList<Admin>();
             return admins.FirstOrDefault(e => e.Username.ToLower() == username.ToLower() && e.Password == password);
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                this.WindowState = FormWindowState.Minimized;
+                this.Hide();
+                e.Cancel = true;
+            }
+        }
+
+        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

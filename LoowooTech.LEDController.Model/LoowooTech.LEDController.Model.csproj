@@ -56,7 +56,6 @@
     <Compile Include="Admin.cs" />
     <Compile Include="ClientButton.cs" />
     <Compile Include="ClientWindow.cs" />
-    <Compile Include="Command.cs" />
     <Compile Include="LEDScreen.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

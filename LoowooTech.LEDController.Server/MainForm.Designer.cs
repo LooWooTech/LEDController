@@ -43,6 +43,7 @@
             this.btnSystemConfig = new System.Windows.Forms.ToolStripButton();
             this.btnLogout = new System.Windows.Forms.ToolStripButton();
             this.container = new System.Windows.Forms.Panel();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +63,7 @@
             this.btnUser,
             this.toolStripSeparator5,
             this.btnSystemConfig,
+            this.toolStripSeparator6,
             this.btnLogout});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -157,7 +159,9 @@
             // btnLogout
             // 
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(23, 24);
+            this.btnLogout.Size = new System.Drawing.Size(41, 24);
+            this.btnLogout.Text = "退出";
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // container
             // 
@@ -166,6 +170,11 @@
             this.container.Name = "container";
             this.container.Size = new System.Drawing.Size(584, 334);
             this.container.TabIndex = 1;
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 27);
             // 
             // MainForm
             // 
@@ -200,6 +209,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton btnLogout;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
     }
 }
 

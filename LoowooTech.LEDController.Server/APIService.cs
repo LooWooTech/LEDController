@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LoowooTech.LEDController.Server.API
 {
-    public class APIService
+    public class APIService : IAPIService
     {
         public bool ShowText(string clientId, string content)
         {
