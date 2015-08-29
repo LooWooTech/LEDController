@@ -15,5 +15,26 @@ namespace LoowooTech.LEDController.Client
         {
             InitializeComponent();
         }
+
+        private void labTitle_DoubleClick(object sender, EventArgs e)
+        {
+            var historyForm = new HistoryForm();
+            historyForm.Show();
+        }
+
+        private void btnSendMessage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOffwork_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCountDown_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
