@@ -28,8 +28,7 @@ namespace LoowooTech.LEDController.Server.UserControls
             _hasBind = true;
 
             (dataGridView1.Columns["ScreenId"] as DataGridViewComboBoxColumn).DataSource = DataManager.GetList<LEDScreen>().Select(e => e.ID).ToArray();
-            (dataGridView1.Columns["HorizontalAlignment"] as DataGridViewComboBoxColumn).DataSource = Enum.GetNames(typeof(HorizontalAlignment));
-            (dataGridView1.Columns["VerticalAlignment"] as DataGridViewComboBoxColumn).DataSource = Enum.GetNames(typeof(VerticalAlignment));
+            (dataGridView1.Columns["TextAlignment"] as DataGridViewComboBoxColumn).DataSource = Enum.GetNames(typeof(TextAlignment));
             (dataGridView1.Columns["TextAnimation"] as DataGridViewComboBoxColumn).DataSource = Enum.GetNames(typeof(TextAnimation));
 
 
@@ -49,8 +48,7 @@ namespace LoowooTech.LEDController.Server.UserControls
             row.Cells["ScreenId"].Value = model.ScreenId;
             row.Cells["Width"].Value = model.Width;
             row.Cells["Height"].Value = model.Height;
-            row.Cells["HorizontalAlignment"].Value = model.HorizontalAlignment.ToString();
-            row.Cells["VerticalAlignment"].Value = model.VerticalAlignment.ToString();
+            row.Cells["TextAlignment"].Value = model.TextAlignment.ToString();
             row.Cells["TextAnimation"].Value = model.TextAnimation.ToString();
             row.Cells["FontFamily"].Value = model.FontFamily;
             row.Cells["FontSize"].Value = model.FontSize.ToString();
@@ -111,8 +109,7 @@ namespace LoowooTech.LEDController.Server.UserControls
 
                     model.FontFamily = row.Cells["FontFamily"].Value.ToString();
 
-                    model.HorizontalAlignment = (System.Windows.Forms.HorizontalAlignment)Enum.Parse(model.HorizontalAlignment.GetType(), row.Cells["HorizontalAlignment"].Value.ToString());
-                    model.VerticalAlignment = (System.Windows.Forms.VisualStyles.VerticalAlignment)Enum.Parse(model.VerticalAlignment.GetType(), row.Cells["VerticalAlignment"].Value.ToString());
+                    model.TextAlignment = (TextAlignment)Enum.Parse(model.TextAlignment.GetType(), row.Cells["TextAlignment"].Value.ToString());
                     model.TextAnimation = (TextAnimation)Enum.Parse(model.TextAnimation.GetType(), row.Cells["TextAnimation"].Value.ToString());
 
                     list.Add(model);

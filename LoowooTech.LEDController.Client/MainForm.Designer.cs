@@ -35,7 +35,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSendMessage = new System.Windows.Forms.Button();
             this.cbxMessage = new System.Windows.Forms.ComboBox();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.offworkPanel = new System.Windows.Forms.Panel();
             this.btnOffwork = new System.Windows.Forms.Button();
             this.cbxOffworkTime = new System.Windows.Forms.ComboBox();
             this.buttonContainer = new System.Windows.Forms.FlowLayoutPanel();
@@ -44,7 +44,7 @@
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.offworkPanel.SuspendLayout();
             this.buttonContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,18 +129,19 @@
             this.cbxMessage.Size = new System.Drawing.Size(269, 28);
             this.cbxMessage.TabIndex = 0;
             // 
-            // panel4
+            // offworkPanel
             // 
-            this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.Controls.Add(this.btnOffwork);
-            this.panel4.Controls.Add(this.cbxOffworkTime);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 220);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(13, 17, 13, 17);
-            this.panel4.Size = new System.Drawing.Size(393, 40);
-            this.panel4.TabIndex = 9;
+            this.offworkPanel.BackColor = System.Drawing.Color.Transparent;
+            this.offworkPanel.Controls.Add(this.btnOffwork);
+            this.offworkPanel.Controls.Add(this.cbxOffworkTime);
+            this.offworkPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.offworkPanel.Location = new System.Drawing.Point(0, 220);
+            this.offworkPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.offworkPanel.Name = "offworkPanel";
+            this.offworkPanel.Padding = new System.Windows.Forms.Padding(13, 17, 13, 17);
+            this.offworkPanel.Size = new System.Drawing.Size(393, 40);
+            this.offworkPanel.TabIndex = 9;
+            this.offworkPanel.Visible = false;
             // 
             // btnOffwork
             // 
@@ -169,6 +170,7 @@
             // 
             // buttonContainer
             // 
+            this.buttonContainer.BackColor = System.Drawing.Color.AntiqueWhite;
             this.buttonContainer.Controls.Add(this.btnCountDown);
             this.buttonContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonContainer.Location = new System.Drawing.Point(0, 260);
@@ -190,6 +192,7 @@
             this.btnCountDown.TabIndex = 0;
             this.btnCountDown.Text = "倒计时";
             this.btnCountDown.UseVisualStyleBackColor = false;
+            this.btnCountDown.Visible = false;
             this.btnCountDown.Click += new System.EventHandler(this.btnCountDown_Click);
             // 
             // panel5
@@ -210,7 +213,7 @@
             this.ClientSize = new System.Drawing.Size(393, 397);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.buttonContainer);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.offworkPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
@@ -224,7 +227,7 @@
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
+            this.offworkPanel.ResumeLayout(false);
             this.buttonContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -238,7 +241,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnSendMessage;
         private System.Windows.Forms.ComboBox cbxMessage;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel offworkPanel;
         private System.Windows.Forms.Button btnOffwork;
         private System.Windows.Forms.ComboBox cbxOffworkTime;
         private System.Windows.Forms.FlowLayoutPanel buttonContainer;

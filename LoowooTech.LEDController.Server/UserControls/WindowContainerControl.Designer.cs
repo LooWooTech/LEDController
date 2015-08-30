@@ -45,8 +45,7 @@
             this.MarginTop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FontFamily = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.FontSize = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.HorizontalAlignment = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.VerticalAlignment = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.TextAlignment = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.TextAnimation = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -132,8 +131,7 @@
             this.MarginTop,
             this.FontFamily,
             this.FontSize,
-            this.HorizontalAlignment,
-            this.VerticalAlignment,
+            this.TextAlignment,
             this.TextAnimation});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -209,25 +207,11 @@
             this.FontSize.Name = "FontSize";
             this.FontSize.Width = 80;
             // 
-            // HorizontalAlignment
+            // TextAlignment
             // 
-            this.HorizontalAlignment.HeaderText = "水平对齐";
-            this.HorizontalAlignment.Items.AddRange(new object[] {
-            "居左",
-            "居中",
-            "居右"});
-            this.HorizontalAlignment.Name = "HorizontalAlignment";
-            this.HorizontalAlignment.Width = 80;
-            // 
-            // VerticalAlignment
-            // 
-            this.VerticalAlignment.HeaderText = "垂直对齐";
-            this.VerticalAlignment.Items.AddRange(new object[] {
-            "居上",
-            "居中",
-            "居下"});
-            this.VerticalAlignment.Name = "VerticalAlignment";
-            this.VerticalAlignment.Width = 80;
+            this.TextAlignment.HeaderText = "文字对齐";
+            this.TextAlignment.Name = "TextAlignment";
+            this.TextAlignment.Width = 80;
             // 
             // TextAnimation
             // 
@@ -270,8 +254,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MarginTop;
         private System.Windows.Forms.DataGridViewComboBoxColumn FontFamily;
         private System.Windows.Forms.DataGridViewComboBoxColumn FontSize;
-        private System.Windows.Forms.DataGridViewComboBoxColumn HorizontalAlignment;
-        private System.Windows.Forms.DataGridViewComboBoxColumn VerticalAlignment;
+        private System.Windows.Forms.DataGridViewComboBoxColumn TextAlignment;
         private System.Windows.Forms.DataGridViewComboBoxColumn TextAnimation;
     }
 }
