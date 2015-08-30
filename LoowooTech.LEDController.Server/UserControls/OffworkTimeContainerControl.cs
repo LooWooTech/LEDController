@@ -11,14 +11,14 @@ using LoowooTech.LEDController.Model;
 
 namespace LoowooTech.LEDController.Server.UserControls
 {
-    public partial class ButtonContainerControl : UserControl, IContainerControl
+    public partial class OffworkTimeContainerControl : UserControl, IContainerControl
     {
-        private DataManager DataManager = DataManager.Instance;
-
-        public ButtonContainerControl()
+        public OffworkTimeContainerControl()
         {
             InitializeComponent();
         }
+
+        private DataManager DataManager = DataManager.Instance;
 
         private bool _hasBind;
         public void BindData()
@@ -26,22 +26,20 @@ namespace LoowooTech.LEDController.Server.UserControls
             if (_hasBind) return;
             _hasBind = true;
 
-            (dataGridView1.Columns["Type"] as DataGridViewComboBoxColumn).DataSource = Enum.GetNames(typeof(ClientButtonType));
-
-            var data = DataManager.GetList<Model.ClientButton>();
+            var data = DataManager.GetList<Model.OffworkTime>();
             foreach (var item in data)
             {
                 AddRow(item);
             }
         }
 
-        private void AddRow(Model.ClientButton model)
+        private void AddRow(Model.OffworkTime model)
         {
             var rowIndex = dataGridView1.Rows.Add();
             var row = dataGridView1.Rows[rowIndex];
 
-            row.Cells["Type"].Value = model.Type.ToString();
-            row.Cells["Message"].Value = model.Message;
+            row.Cells["Hour"].Value = (model.Hour < 10 ? "0" : "") + model.Hour.ToString();
+            row.Cells["Minute"].Value = (model.Minute < 10 ? "0" : "") + model.Minute.ToString();
 
             dataGridView1.CurrentCell = row.Cells[0];
             dataGridView1.BeginEdit(false);
@@ -49,7 +47,7 @@ namespace LoowooTech.LEDController.Server.UserControls
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddRow(new Model.ClientButton());
+            AddRow(new Model.OffworkTime());
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -65,19 +63,15 @@ namespace LoowooTech.LEDController.Server.UserControls
 
         public void SaveData()
         {
-            var list = new List<Model.ClientButton>();
+            var list = new List<Model.OffworkTime>();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                try
+                var model = new Model.OffworkTime
                 {
-                    var model = new Model.ClientButton
-                    {
-                        Type = (ClientButtonType)Enum.Parse(typeof(ClientButtonType), row.Cells["Type"].Value.ToString()),
-                        Message = row.Cells["Message"].Value.ToString()
-                    };
-                    list.Add(model);
-                }
-                catch { }
+                    Hour = int.Parse(row.Cells["Hour"].Value.ToString()),
+                    Minute = int.Parse(row.Cells["Minute"].Value.ToString())
+                };
+                list.Add(model);
             }
             DataManager.Save(list);
         }

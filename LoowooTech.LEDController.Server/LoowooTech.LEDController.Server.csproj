@@ -132,6 +132,12 @@
     <Compile Include="UserControls\MessageContainerControl.Designer.cs">
       <DependentUpon>MessageContainerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\OffworkTimeContainerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\OffworkTimeContainerControl.Designer.cs">
+      <DependentUpon>OffworkTimeContainerControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ScreenContainerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MessageContainerControl.resx">
       <DependentUpon>MessageContainerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\OffworkTimeContainerControl.resx">
+      <DependentUpon>OffworkTimeContainerControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ScreenContainerControl.resx">
       <DependentUpon>ScreenContainerControl.cs</DependentUpon>

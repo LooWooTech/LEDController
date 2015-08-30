@@ -11,8 +11,8 @@ namespace LoowooTech.LEDController.Model
         普通,
         开始,
         暂停,
-        下班,
         故障,
+        下班,
         倒计时
     }
 

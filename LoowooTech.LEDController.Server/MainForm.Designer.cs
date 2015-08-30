@@ -41,9 +41,11 @@
             this.btnUser = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSystemConfig = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btnLogout = new System.Windows.Forms.ToolStripButton();
             this.container = new System.Windows.Forms.Panel();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnOffworkTime = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,11 +57,13 @@
             this.btnMessage,
             this.toolStripSeparator3,
             this.btnClientButton,
+            this.toolStripSeparator1,
+            this.btnOffworkTime,
             this.toolStripSeparator2,
             this.btnLEDScreen,
             this.toolStripSeparator4,
             this.btnClientWindow,
-            this.toolStripSeparator1,
+            this.toolStripSeparator7,
             this.btnUser,
             this.toolStripSeparator5,
             this.btnSystemConfig,
@@ -154,7 +158,14 @@
             this.btnSystemConfig.Name = "btnSystemConfig";
             this.btnSystemConfig.Size = new System.Drawing.Size(69, 24);
             this.btnSystemConfig.Text = "系统配置";
+            this.btnSystemConfig.Visible = false;
             this.btnSystemConfig.Click += new System.EventHandler(this.btnSystemConfig_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator6.Visible = false;
             // 
             // btnLogout
             // 
@@ -171,10 +182,20 @@
             this.container.Size = new System.Drawing.Size(584, 334);
             this.container.TabIndex = 1;
             // 
-            // toolStripSeparator6
+            // btnOffworkTime
             // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 27);
+            this.btnOffworkTime.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnOffworkTime.Image = ((System.Drawing.Image)(resources.GetObject("btnOffworkTime.Image")));
+            this.btnOffworkTime.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnOffworkTime.Name = "btnOffworkTime";
+            this.btnOffworkTime.Size = new System.Drawing.Size(69, 24);
+            this.btnOffworkTime.Text = "下班时间";
+            this.btnOffworkTime.Click += new System.EventHandler(this.btnOffworkTime_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 27);
             // 
             // MainForm
             // 
@@ -210,6 +231,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton btnLogout;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripButton btnOffworkTime;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     }
 }
 

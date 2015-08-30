@@ -64,7 +64,7 @@ namespace LoowooTech.LEDController.Server
                     }
                     else
                     {
-                        MessageBox.Show("用户名或密码填写正常");
+                        MessageBox.Show("找不到该账号，请检查用户名或密码");
                     }
                 }));
 
@@ -75,6 +75,10 @@ namespace LoowooTech.LEDController.Server
         {
 
             var admins = DataManager.GetList<Admin>();
+            if (admins.Count == 0)
+            {
+                return new Admin { Username = "temp", Password = "temp" };
+            }
             return admins.FirstOrDefault(e => e.Username.ToLower() == username.ToLower() && e.Password == password);
         }
 

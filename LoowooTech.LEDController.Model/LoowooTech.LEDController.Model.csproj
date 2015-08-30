@@ -58,6 +58,7 @@
     <Compile Include="ClientWindow.cs" />
     <Compile Include="LEDScreen.cs" />
     <Compile Include="Message.cs" />
+    <Compile Include="OffworkTime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextAnimation.cs" />
   </ItemGroup>

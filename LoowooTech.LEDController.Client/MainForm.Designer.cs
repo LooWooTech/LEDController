@@ -31,6 +31,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.labTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labMessage = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSendMessage = new System.Windows.Forms.Button();
             this.cbxMessage = new System.Windows.Forms.ComboBox();
@@ -39,7 +40,6 @@
             this.cbxOffworkTime = new System.Windows.Forms.ComboBox();
             this.buttonContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCountDown = new System.Windows.Forms.Button();
-            this.labMessage = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,6 +81,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(393, 130);
             this.panel1.TabIndex = 7;
+            // 
+            // labMessage
+            // 
+            this.labMessage.BackColor = System.Drawing.Color.Black;
+            this.labMessage.Font = new System.Drawing.Font("KaiTi", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labMessage.ForeColor = System.Drawing.Color.Red;
+            this.labMessage.Location = new System.Drawing.Point(42, 14);
+            this.labMessage.Name = "labMessage";
+            this.labMessage.Size = new System.Drawing.Size(287, 100);
+            this.labMessage.TabIndex = 0;
+            this.labMessage.Text = "测试文字测试文字测试文字测试文字";
             // 
             // panel2
             // 
@@ -180,17 +191,6 @@
             this.btnCountDown.Text = "倒计时";
             this.btnCountDown.UseVisualStyleBackColor = false;
             this.btnCountDown.Click += new System.EventHandler(this.btnCountDown_Click);
-            // 
-            // labMessage
-            // 
-            this.labMessage.BackColor = System.Drawing.Color.Black;
-            this.labMessage.Font = new System.Drawing.Font("KaiTi", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labMessage.ForeColor = System.Drawing.Color.Red;
-            this.labMessage.Location = new System.Drawing.Point(42, 14);
-            this.labMessage.Name = "labMessage";
-            this.labMessage.Size = new System.Drawing.Size(287, 100);
-            this.labMessage.TabIndex = 0;
-            this.labMessage.Text = "测试文字测试文字测试文字测试文字";
             // 
             // panel5
             // 

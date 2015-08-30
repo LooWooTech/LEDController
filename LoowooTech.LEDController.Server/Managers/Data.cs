@@ -61,9 +61,11 @@ namespace LoowooTech.LEDController.Server.Managers
     public enum DataType
     {
         Message = 1,
-        Button,
-        Window,
-        Screen,
-        Config
+        ClientButton,
+        ClientWindow,
+        LEDScreen,
+        Admin,
+        OffworkTime,
+        SystemConfig
     }
 }
