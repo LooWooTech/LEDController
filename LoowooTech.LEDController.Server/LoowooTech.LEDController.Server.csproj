@@ -105,6 +105,8 @@
     <Compile Include="Managers\DataManager.cs" />
     <Compile Include="Managers\Data.cs" />
     <Compile Include="Managers\DataContext.cs" />
+    <Compile Include="Managers\History.cs" />
+    <Compile Include="Managers\HistoryManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControls\AdminContainerControl.cs">
@@ -124,6 +126,12 @@
     </Compile>
     <Compile Include="UserControls\ConfigContainerControl.Designer.cs">
       <DependentUpon>ConfigContainerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HistoryContainerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HistoryContainerControl.Designer.cs">
+      <DependentUpon>HistoryContainerControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\IContainerControl.cs" />
     <Compile Include="UserControls\MessageContainerControl.cs">
@@ -173,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ConfigContainerControl.resx">
       <DependentUpon>ConfigContainerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HistoryContainerControl.resx">
+      <DependentUpon>HistoryContainerControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MessageContainerControl.resx">
       <DependentUpon>MessageContainerControl.cs</DependentUpon>

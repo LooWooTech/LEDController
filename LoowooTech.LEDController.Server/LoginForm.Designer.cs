@@ -96,7 +96,7 @@
             this.btnLogin.Location = new System.Drawing.Point(102, 178);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(90, 36);
-            this.btnLogin.TabIndex = 1;
+            this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "登录";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -134,12 +134,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.退出ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 26);
             // 
             // 退出ToolStripMenuItem
             // 
             this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.退出ToolStripMenuItem.Text = "退出系统";
             this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 

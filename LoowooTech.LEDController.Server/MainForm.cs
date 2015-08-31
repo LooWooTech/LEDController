@@ -16,8 +16,13 @@ namespace LoowooTech.LEDController.Server
         public MainForm()
         {
             InitializeComponent();
-            AddContainer<MessageContainerControl>();
         }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+             AddContainer<MessageContainerControl>();
+       }
 
         private void AddContainer<T>() where T : UserControl, LoowooTech.LEDController.Server.UserControls.IContainerControl, new()
         {
@@ -79,6 +84,11 @@ namespace LoowooTech.LEDController.Server
         private void btnOffworkTime_Click(object sender, EventArgs e)
         {
             AddContainer<OffworkTimeContainerControl>();
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            AddContainer<HistoryContainerControl>();
         }
 
         private void Logout()

@@ -33,19 +33,21 @@
             this.btnMessage = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnClientButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnOffworkTime = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnLEDScreen = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnClientWindow = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.btnUser = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSystemConfig = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btnLogout = new System.Windows.Forms.ToolStripButton();
             this.container = new System.Windows.Forms.Panel();
-            this.btnOffworkTime = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnHistory = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,12 +68,14 @@
             this.toolStripSeparator7,
             this.btnUser,
             this.toolStripSeparator5,
+            this.btnHistory,
+            this.toolStripSeparator8,
             this.btnSystemConfig,
             this.toolStripSeparator6,
             this.btnLogout});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(584, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(704, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -99,6 +103,21 @@
             this.btnClientButton.Size = new System.Drawing.Size(69, 24);
             this.btnClientButton.Text = "按钮配置";
             this.btnClientButton.Click += new System.EventHandler(this.btnClientButton_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
+            // btnOffworkTime
+            // 
+            this.btnOffworkTime.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnOffworkTime.Image = ((System.Drawing.Image)(resources.GetObject("btnOffworkTime.Image")));
+            this.btnOffworkTime.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnOffworkTime.Name = "btnOffworkTime";
+            this.btnOffworkTime.Size = new System.Drawing.Size(69, 24);
+            this.btnOffworkTime.Text = "下班时间";
+            this.btnOffworkTime.Click += new System.EventHandler(this.btnOffworkTime_Click);
             // 
             // toolStripSeparator2
             // 
@@ -130,10 +149,10 @@
             this.btnClientWindow.Text = "窗口配置";
             this.btnClientWindow.Click += new System.EventHandler(this.btnClientWindow_Click);
             // 
-            // toolStripSeparator1
+            // toolStripSeparator7
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 27);
             // 
             // btnUser
             // 
@@ -179,29 +198,29 @@
             this.container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.container.Location = new System.Drawing.Point(0, 27);
             this.container.Name = "container";
-            this.container.Size = new System.Drawing.Size(584, 334);
+            this.container.Size = new System.Drawing.Size(704, 374);
             this.container.TabIndex = 1;
             // 
-            // btnOffworkTime
+            // btnHistory
             // 
-            this.btnOffworkTime.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnOffworkTime.Image = ((System.Drawing.Image)(resources.GetObject("btnOffworkTime.Image")));
-            this.btnOffworkTime.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnOffworkTime.Name = "btnOffworkTime";
-            this.btnOffworkTime.Size = new System.Drawing.Size(69, 24);
-            this.btnOffworkTime.Text = "下班时间";
-            this.btnOffworkTime.Click += new System.EventHandler(this.btnOffworkTime_Click);
+            this.btnHistory.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnHistory.Image")));
+            this.btnHistory.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(69, 24);
+            this.btnHistory.Text = "历史记录";
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
             // 
-            // toolStripSeparator7
+            // toolStripSeparator8
             // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 27);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 361);
+            this.ClientSize = new System.Drawing.Size(704, 401);
             this.Controls.Add(this.container);
             this.Controls.Add(this.toolStrip1);
             this.Name = "MainForm";
@@ -233,6 +252,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton btnOffworkTime;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripButton btnHistory;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
     }
 }
 

@@ -15,5 +15,7 @@ namespace LoowooTech.LEDController.Server.Managers
         }
         
         public DbSet<Data> Datas { get; set; }
+
+        public DbSet<History> Histories { get; set; }
     }
 }

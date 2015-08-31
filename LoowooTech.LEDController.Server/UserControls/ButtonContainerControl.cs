@@ -20,12 +20,8 @@ namespace LoowooTech.LEDController.Server.UserControls
             InitializeComponent();
         }
 
-        private bool _hasBind;
         public void BindData()
         {
-            if (_hasBind) return;
-            _hasBind = true;
-
             (dataGridView1.Columns["Type"] as DataGridViewComboBoxColumn).DataSource = Enum.GetNames(typeof(ClientButtonType));
 
             var data = DataManager.GetList<Model.ClientButton>();

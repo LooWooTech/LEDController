@@ -92,11 +92,11 @@ namespace LoowooTech.LEDController.Client
                 cbxOffworkTime.DataSource = offworkTimes.Select(e => new TimeSpan(e.Hour, e.Minute, 0).ToString()).ToArray();
                 //绑定文字窗口
                 labMessage.TextAlign = (ContentAlignment)((int)window.TextAlignment);
-                //判断下班、倒计时按钮是否可见
+                //判断下班按钮是否可见
                 offworkPanel.Visible = _offworkButton != null;
-                btnCountDown.Visible = _countdownButton != null;
                 //加载其他按钮
-                foreach (var btn in buttons.Where(e => e.Type != ClientButtonType.倒计时 && e.Type != ClientButtonType.下班))
+                buttonContainer.Controls.Clear();
+                foreach (var btn in buttons.Where(e => e.Type != ClientButtonType.下班))
                 {
                     var control = new Button()
                     {
@@ -107,8 +107,27 @@ namespace LoowooTech.LEDController.Client
                         Width = 85,
                         Height = 32
                     };
+                    switch (btn.Type)
+                    { 
+                        case ClientButtonType.故障:
+                            control.BackColor = Color.Red;
+                            break;
+                        case ClientButtonType.倒计时:
+                            control.BackColor = Color.Peru;
+                            break;
+                    }
                     //按钮点击事件
-                    control.Click += (sender, e) => SendMessage(btn.Message);
+                    control.Click += (sender, e) =>
+                    {
+                        if (btn.Type == ClientButtonType.下班)
+                        {
+                            btnCountDown_Click(sender, e);
+                        }
+                        else
+                        {
+                            SendMessage(btn.Message);
+                        }
+                    };
                     buttonContainer.Controls.Add(control);
                 }
             }));
@@ -141,13 +160,13 @@ namespace LoowooTech.LEDController.Client
 
         private void btnOffwork_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(cbxOffworkTime.SelectedText))
+            if (string.IsNullOrEmpty(cbxOffworkTime.Text))
             {
                 MessageBox.Show("没有选择下班时间");
                 return;
             }
 
-            var arr = cbxOffworkTime.SelectedText.Split(':');
+            var arr = cbxOffworkTime.Text.Split(':');
             var hour = int.Parse(arr[0]);
             var minute = int.Parse(arr[1]);
 
@@ -155,12 +174,12 @@ namespace LoowooTech.LEDController.Client
 
             var lastMinutes = (DateTime.Now - offworkTime).TotalMinutes;
 
-            SendMessage("离下班时间还剩" + lastMinutes + "分钟");
+            SendMessage(_offworkButton.Message.Replace("{剩余分钟}", lastMinutes.ToString()));
         }
 
         private void btnCountDown_Click(object sender, EventArgs e)
         {
-
+            SendMessage(_countdownButton.Message.Replace("{剩余人数}", CountDownNumber.ToString()));
         }
     }
 }

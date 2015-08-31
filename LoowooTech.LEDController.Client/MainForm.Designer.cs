@@ -39,13 +39,11 @@
             this.btnOffwork = new System.Windows.Forms.Button();
             this.cbxOffworkTime = new System.Windows.Forms.ComboBox();
             this.buttonContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnCountDown = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.offworkPanel.SuspendLayout();
-            this.buttonContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -121,6 +119,7 @@
             // 
             // cbxMessage
             // 
+            this.cbxMessage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxMessage.FormattingEnabled = true;
             this.cbxMessage.Location = new System.Drawing.Point(13, 6);
@@ -145,7 +144,7 @@
             // 
             // btnOffwork
             // 
-            this.btnOffwork.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnOffwork.BackColor = System.Drawing.Color.Crimson;
             this.btnOffwork.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOffwork.ForeColor = System.Drawing.Color.White;
             this.btnOffwork.Location = new System.Drawing.Point(290, 2);
@@ -170,8 +169,6 @@
             // 
             // buttonContainer
             // 
-            this.buttonContainer.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.buttonContainer.Controls.Add(this.btnCountDown);
             this.buttonContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonContainer.Location = new System.Drawing.Point(0, 260);
             this.buttonContainer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -179,21 +176,6 @@
             this.buttonContainer.Padding = new System.Windows.Forms.Padding(9, 0, 9, 0);
             this.buttonContainer.Size = new System.Drawing.Size(393, 137);
             this.buttonContainer.TabIndex = 12;
-            // 
-            // btnCountDown
-            // 
-            this.btnCountDown.BackColor = System.Drawing.Color.Brown;
-            this.btnCountDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCountDown.ForeColor = System.Drawing.Color.White;
-            this.btnCountDown.Location = new System.Drawing.Point(13, 5);
-            this.btnCountDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCountDown.Name = "btnCountDown";
-            this.btnCountDown.Size = new System.Drawing.Size(85, 32);
-            this.btnCountDown.TabIndex = 0;
-            this.btnCountDown.Text = "倒计时";
-            this.btnCountDown.UseVisualStyleBackColor = false;
-            this.btnCountDown.Visible = false;
-            this.btnCountDown.Click += new System.EventHandler(this.btnCountDown_Click);
             // 
             // panel5
             // 
@@ -228,7 +210,6 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.offworkPanel.ResumeLayout(false);
-            this.buttonContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -245,7 +226,6 @@
         private System.Windows.Forms.Button btnOffwork;
         private System.Windows.Forms.ComboBox cbxOffworkTime;
         private System.Windows.Forms.FlowLayoutPanel buttonContainer;
-        private System.Windows.Forms.Button btnCountDown;
         private System.Windows.Forms.Label labMessage;
         private System.Windows.Forms.Panel panel5;
     }
