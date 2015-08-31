@@ -72,6 +72,8 @@ namespace LoowooTech.LEDController.Client
 
         private void BindData()
         {
+
+            
             var client = new APIServiceClient();
             var json = client.DownloadConfig(ClientId);
             var data = JsonConvert.DeserializeObject<JObject>(json);
@@ -138,6 +140,7 @@ namespace LoowooTech.LEDController.Client
         {
             var client = new APIServiceClient();
             labMessage.Text = msg;
+            
             client.ShowText(ClientId, msg);
             client.Close();
         }
@@ -150,6 +153,10 @@ namespace LoowooTech.LEDController.Client
 
         private void btnSendMessage_Click(object sender, EventArgs e)
         {
+            ledPanel1.Text = "请先选择或填写好内容，再点击发送按钮";
+            ledPanel1.Font = new Font("宋体", 9);
+            ledPanel1.Alignment = ContentAlignment.MiddleRight;
+
             if (string.IsNullOrEmpty(cbxMessage.Text))
             {
                 MessageBox.Show("请先选择或填写好内容，再点击发送按钮");

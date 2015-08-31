@@ -40,10 +40,12 @@
             this.cbxOffworkTime = new System.Windows.Forms.ComboBox();
             this.buttonContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.ledPanel1 = new LoowooTech.LEDController.Client.LedPanel();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.offworkPanel.SuspendLayout();
+            this.buttonContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -169,6 +171,7 @@
             // 
             // buttonContainer
             // 
+            this.buttonContainer.Controls.Add(this.ledPanel1);
             this.buttonContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonContainer.Location = new System.Drawing.Point(0, 260);
             this.buttonContainer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -186,6 +189,13 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(393, 25);
             this.panel5.TabIndex = 13;
+            // 
+            // ledPanel1
+            // 
+            this.ledPanel1.Location = new System.Drawing.Point(12, 3);
+            this.ledPanel1.Name = "ledPanel1";
+            this.ledPanel1.Size = new System.Drawing.Size(408, 142);
+            this.ledPanel1.TabIndex = 1;
             // 
             // MainForm
             // 
@@ -210,6 +220,7 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.offworkPanel.ResumeLayout(false);
+            this.buttonContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -228,6 +239,7 @@
         private System.Windows.Forms.FlowLayoutPanel buttonContainer;
         private System.Windows.Forms.Label labMessage;
         private System.Windows.Forms.Panel panel5;
+        private LedPanel ledPanel1;
     }
 }
 
