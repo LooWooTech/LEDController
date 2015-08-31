@@ -39,8 +39,8 @@
             this.btnOffwork = new System.Windows.Forms.Button();
             this.cbxOffworkTime = new System.Windows.Forms.ComboBox();
             this.buttonContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.ledPanel1 = new LoowooTech.LEDController.Client.LedPanel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -180,6 +180,15 @@
             this.buttonContainer.Size = new System.Drawing.Size(393, 137);
             this.buttonContainer.TabIndex = 12;
             // 
+            // ledPanel1
+            // 
+            this.ledPanel1.Font = new System.Drawing.Font("SimSun", 10.5F);
+            this.ledPanel1.Location = new System.Drawing.Point(12, 3);
+            this.ledPanel1.Name = "ledPanel1";
+            this.ledPanel1.RowSpace = 0;
+            this.ledPanel1.Size = new System.Drawing.Size(368, 113);
+            this.ledPanel1.TabIndex = 1;
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.SteelBlue;
@@ -189,13 +198,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(393, 25);
             this.panel5.TabIndex = 13;
-            // 
-            // ledPanel1
-            // 
-            this.ledPanel1.Location = new System.Drawing.Point(12, 3);
-            this.ledPanel1.Name = "ledPanel1";
-            this.ledPanel1.Size = new System.Drawing.Size(408, 142);
-            this.ledPanel1.TabIndex = 1;
             // 
             // MainForm
             // 

@@ -19,8 +19,7 @@ namespace LoowooTech.LEDController.Client
 
         private readonly Brush brush;
 
-        [DllImport("gdi32.dll")]
-        public static extern int SetTextCharacterExtra(IntPtr hdc, int nCharExtra);
+        private readonly StringFormat drawFormat = new StringFormat();
 
         private void InitializeComponent()
         {
@@ -32,6 +31,19 @@ namespace LoowooTech.LEDController.Client
             this.Size = new System.Drawing.Size(408, 142);
             this.ResumeLayout(false);
             this.Load += LedPanel_Load;
+        }
+
+        /// <summary>
+        /// 改变面板所模拟的LED屏幕的宽和高（像素）
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        public void ChangeLedSize(int width, int height)
+        {
+            this.width = width;
+            this.height = height;
+            CreateBitmap();
+            DrawText();
         }
 
         private void LedPanel_Load(object sender, EventArgs e)
@@ -128,6 +140,7 @@ namespace LoowooTech.LEDController.Client
             DrawText();
         }
 
+        /*
         /// <summary>
         /// 将文本分行
         /// </summary>
@@ -193,18 +206,18 @@ namespace LoowooTech.LEDController.Client
                 Rectangle fontRectanle = new Rectangle(recangle.Left, top + rowHeight * i, recangle.Width, rowHeight*2);
                 graphic.DrawString(textRows[i], font, new SolidBrush(Color.Black), fontRectanle, sf);
             }
-        }
+        }*/
 
 
         private void DrawStringWrap2(Graphics g, int lineDistance,StringAlignment alignment, StringAlignment verticalAlignment)
         {
             try
             {
-                String drawString = this.Text;
-                Font drawFont = this.Font;
-                SolidBrush drawBrush = new SolidBrush(Color.Red);
-                SizeF textSize = g.MeasureString(this.Text, this.Font);//文本的矩形区域大小     
-                int lineCount = Convert.ToInt16(Math.Floor(textSize.Width / this.width)) + 1;//计算行数     
+                var drawString = this.Text;
+                var drawFont = this.Font;
+                
+                var textSize = g.MeasureString(this.Text, this.Font);//文本的矩形区域大小     
+                var lineCount = Convert.ToInt16(Math.Floor(textSize.Width / this.width)) + 1;//计算行数     
 
                 var maxLine = Convert.ToInt32(this.height / textSize.Height);
                 maxLine = maxLine < lineCount?maxLine:lineCount;
@@ -213,7 +226,7 @@ namespace LoowooTech.LEDController.Client
                     (verticalAlignment == StringAlignment.Near?0:top);
                 
                 float x = 0.0F;
-                var drawFormat = new StringFormat();
+                
                 int step = 1;
                 lineCount = drawString.Length;//行数不超过总字符数目     
                 for (int i = 0; i < maxLine; i++)
@@ -238,7 +251,7 @@ namespace LoowooTech.LEDController.Client
                         var w = this.width - g.MeasureString(subStr, this.Font).Width;
                         x = alignment == StringAlignment.Center ? w / 2 :
                             (alignment == StringAlignment.Near ? 0 : w);
-                        g.DrawString(subStr, drawFont, drawBrush, x, top+Convert.ToInt16(textSize.Height * i) + i * lineDistance, drawFormat);
+                        g.DrawString(subStr, drawFont, brush, x, top+Convert.ToInt16(textSize.Height * i) + i * lineDistance, drawFormat);
                         break;
                     }
                     else
@@ -249,7 +262,7 @@ namespace LoowooTech.LEDController.Client
                         x = alignment == StringAlignment.Center ? w / 2 :
                             (alignment == StringAlignment.Near ? 0 : w);
 
-                        g.DrawString(subStr, drawFont, drawBrush, x, top+Convert.ToInt16(textSize.Height * i) + i * lineDistance, drawFormat);
+                        g.DrawString(subStr, drawFont, brush, x, top+Convert.ToInt16(textSize.Height * i) + i * lineDistance, drawFormat);
                     }
                 }
             }
@@ -304,7 +317,6 @@ namespace LoowooTech.LEDController.Client
                         break;
                 }
                 
-                //var font = new Font("宋体", (float)9.5);
                 //DrawStringWrap(g, font, this.Text, f.Alignment, f.LineAlignment, new Rectangle { X = 0, Y = 0, Height = bitmap.Height, Width = bitmap.Width });
                 //g.DrawString(this.Text, font, brush, new RectangleF { X = 0, Y = 0, Height = bitmap.Height, Width = bitmap.Width }, f);
                 DrawStringWrap2(g, rowSpace, f.Alignment, f.LineAlignment);
