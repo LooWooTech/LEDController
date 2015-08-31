@@ -21,11 +21,8 @@ namespace LoowooTech.LEDController.Server
             var host = new ServiceHost(typeof(APIService));
             host.Open();
 
-            new Thread(() =>
-            {
-                Managers.LEDAdapterManager.Instance.OpenLEDScreens();
-                Managers.LEDAdapterManager.Instance.CreateWindows();
-            }).Start();
+            Managers.LEDAdapterManager.Instance.OpenLEDScreens();
+            Managers.LEDAdapterManager.Instance.CreateWindows();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
