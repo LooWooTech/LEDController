@@ -34,9 +34,10 @@ namespace LoowooTech.LEDController.Server.Managers
         public void CreateWindows()
         {
             var list = DataManager.GetList<ClientWindow>();
+            LEDAdapter.RemoveAllWindows();
             foreach (var model in list)
             {
-                model.LEDVirtualID = LEDAdapter.CreateWindow(model.MarginLeft, model.MarginTop, model.Width, model.Height);
+                model.LEDVirtualID = LEDAdapter.CreateWindow(model.MarginLeft, model.MarginTop, model.Width, model.Height, model.LEDID);
             }
             DataManager.Save(list);
         }

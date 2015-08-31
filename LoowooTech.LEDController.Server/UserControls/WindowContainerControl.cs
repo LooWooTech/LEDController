@@ -29,7 +29,7 @@ namespace LoowooTech.LEDController.Server.UserControls
             if (_hasBind) return;
             _hasBind = true;
 
-            (dataGridView1.Columns["LEDID"] as DataGridViewComboBoxColumn).DataSource = DataManager.GetList<LEDScreen>().Select(e => e.ID).ToArray();
+            //(dataGridView1.Columns["LEDID"] as DataGridViewComboBoxColumn).DataSource = DataManager.GetList<LEDScreen>().Select(e => e.ID).ToArray();
             (dataGridView1.Columns["TextAlignment"] as DataGridViewComboBoxColumn).DataSource = Enum.GetNames(typeof(TextAlignment));
             (dataGridView1.Columns["TextAnimation"] as DataGridViewComboBoxColumn).DataSource = Enum.GetNames(typeof(TextAnimation));
 
@@ -49,7 +49,7 @@ namespace LoowooTech.LEDController.Server.UserControls
             row.Cells["ID"].Value = model.ID;
             row.Cells["LEDID"].Value = model.LEDID;
             row.Cells["Width"].Value = model.Width;
-            row.Cells["Height"].Value = model.Height;
+            row.Cells["Height"].Value = model.Height.ToString();
             row.Cells["TextAlignment"].Value = model.TextAlignment.ToString();
             row.Cells["TextAnimation"].Value = model.TextAnimation.ToString();
             row.Cells["FontFamily"].Value = model.FontFamily;

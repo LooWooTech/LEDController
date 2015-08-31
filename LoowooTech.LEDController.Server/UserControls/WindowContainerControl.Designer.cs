@@ -35,10 +35,12 @@
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnCreateWindow = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ScreenId = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.LEDID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Height = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Width = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MarginLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,8 +49,6 @@
             this.FontSize = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.TextAlignment = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.TextAnimation = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnCreateWindow = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -110,6 +110,22 @@
             this.btnDelete.Text = "删除";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnCreateWindow
+            // 
+            this.btnCreateWindow.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnCreateWindow.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateWindow.Image")));
+            this.btnCreateWindow.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCreateWindow.Name = "btnCreateWindow";
+            this.btnCreateWindow.Size = new System.Drawing.Size(60, 22);
+            this.btnCreateWindow.Text = "创建窗口";
+            this.btnCreateWindow.ToolTipText = "如果窗口已经创建，则会全部重新创建";
+            this.btnCreateWindow.Click += new System.EventHandler(this.btnCreateWindow_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dataGridView1);
@@ -128,7 +144,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.ScreenId,
+            this.LEDID,
             this.Height,
             this.Width,
             this.MarginLeft,
@@ -143,7 +159,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(2);
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(580, 295);
             this.dataGridView1.TabIndex = 2;
             // 
@@ -153,11 +169,13 @@
             this.ID.Name = "ID";
             this.ID.Width = 80;
             // 
-            // ScreenId
+            // LEDID
             // 
-            this.ScreenId.HeaderText = "屏幕编号";
-            this.ScreenId.Name = "ScreenId";
-            this.ScreenId.Width = 80;
+            this.LEDID.HeaderText = "屏幕编号";
+            this.LEDID.Name = "LEDID";
+            this.LEDID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.LEDID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.LEDID.Width = 80;
             // 
             // Height
             // 
@@ -185,6 +203,7 @@
             // 
             // FontFamily
             // 
+            this.FontFamily.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FontFamily.HeaderText = "字体";
             this.FontFamily.Items.AddRange(new object[] {
             "宋体",
@@ -194,6 +213,7 @@
             // 
             // FontSize
             // 
+            this.FontSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FontSize.HeaderText = "字体大小";
             this.FontSize.Items.AddRange(new object[] {
             "1",
@@ -213,31 +233,17 @@
             // 
             // TextAlignment
             // 
+            this.TextAlignment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TextAlignment.HeaderText = "文字对齐";
             this.TextAlignment.Name = "TextAlignment";
             this.TextAlignment.Width = 80;
             // 
             // TextAnimation
             // 
+            this.TextAnimation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TextAnimation.HeaderText = "动画效果";
             this.TextAnimation.Name = "TextAnimation";
             this.TextAnimation.Width = 80;
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // btnCreateWindow
-            // 
-            this.btnCreateWindow.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnCreateWindow.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateWindow.Image")));
-            this.btnCreateWindow.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCreateWindow.Name = "btnCreateWindow";
-            this.btnCreateWindow.Size = new System.Drawing.Size(60, 22);
-            this.btnCreateWindow.Text = "创建窗口";
-            this.btnCreateWindow.ToolTipText = "如果窗口已经创建，则会全部重新创建";
-            this.btnCreateWindow.Click += new System.EventHandler(this.btnCreateWindow_Click);
             // 
             // WindowContainerControl
             // 
@@ -266,8 +272,10 @@
         private System.Windows.Forms.ToolStripButton btnDelete;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton btnCreateWindow;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ScreenId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LEDID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Height;
         private System.Windows.Forms.DataGridViewTextBoxColumn Width;
         private System.Windows.Forms.DataGridViewTextBoxColumn MarginLeft;
@@ -276,7 +284,5 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn FontSize;
         private System.Windows.Forms.DataGridViewComboBoxColumn TextAlignment;
         private System.Windows.Forms.DataGridViewComboBoxColumn TextAnimation;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton btnCreateWindow;
     }
 }
