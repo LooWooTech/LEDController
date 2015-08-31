@@ -32,13 +32,18 @@ namespace LoowooTech.LEDController.Server
         /// <param name="width">宽度</param>
         /// <param name="height">高度</param>
         /// <returns>返回虚拟窗口id，小于0表示创建失败</returns>
-        int CreateWindow(int x, int y, int width, int height);
+        int CreateWindow(int x, int y, int width, int height, int ledIndex);
 
         /// <summary>
         /// 在屏幕上删除一个已经建立的虚拟窗口
         /// </summary>
         /// <param name="windowId">虚拟窗口id</param>
         void RemoveWindow(int windowId);
+
+        /// <summary>
+        /// 删除已建立的所有虚拟窗口
+        /// </summary>
+        void RemoveAllWindows();
 
         /// <summary>
         /// 设置某个窗口的文字显示方式，包括字体，对齐等
