@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace LoowooTech.LEDController.Server
@@ -19,6 +20,12 @@ namespace LoowooTech.LEDController.Server
 
             var host = new ServiceHost(typeof(APIService));
             host.Open();
+
+            new Thread(() =>
+            {
+                Managers.LEDAdapterManager.Instance.OpenLEDScreens();
+                Managers.LEDAdapterManager.Instance.CreateWindows();
+            }).Start();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

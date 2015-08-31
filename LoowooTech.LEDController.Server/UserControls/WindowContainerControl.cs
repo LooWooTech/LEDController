@@ -9,12 +9,14 @@ using System.Windows.Forms;
 using LoowooTech.LEDController.Model;
 using LoowooTech.LEDController.Server.Managers;
 using System.Windows.Forms.VisualStyles;
+using LoowooTech.LEDController.Server;
 
 namespace LoowooTech.LEDController.Server.UserControls
 {
     public partial class WindowContainerControl : UserControl, IContainerControl
     {
         private DataManager DataManager = DataManager.Instance;
+        private ILEDAdapter LEDAdapter;
 
         public WindowContainerControl()
         {
@@ -27,7 +29,7 @@ namespace LoowooTech.LEDController.Server.UserControls
             if (_hasBind) return;
             _hasBind = true;
 
-            (dataGridView1.Columns["ScreenId"] as DataGridViewComboBoxColumn).DataSource = DataManager.GetList<LEDScreen>().Select(e => e.ID).ToArray();
+            (dataGridView1.Columns["LEDID"] as DataGridViewComboBoxColumn).DataSource = DataManager.GetList<LEDScreen>().Select(e => e.ID).ToArray();
             (dataGridView1.Columns["TextAlignment"] as DataGridViewComboBoxColumn).DataSource = Enum.GetNames(typeof(TextAlignment));
             (dataGridView1.Columns["TextAnimation"] as DataGridViewComboBoxColumn).DataSource = Enum.GetNames(typeof(TextAnimation));
 
@@ -45,7 +47,7 @@ namespace LoowooTech.LEDController.Server.UserControls
             var row = dataGridView1.Rows[rowIndex];
 
             row.Cells["ID"].Value = model.ID;
-            row.Cells["ScreenId"].Value = model.ScreenId;
+            row.Cells["LEDID"].Value = model.LEDID;
             row.Cells["Width"].Value = model.Width;
             row.Cells["Height"].Value = model.Height;
             row.Cells["TextAlignment"].Value = model.TextAlignment.ToString();
@@ -93,7 +95,9 @@ namespace LoowooTech.LEDController.Server.UserControls
                     int.TryParse(row.Cells["Height"].Value.ToString(), out height);
                     model.Height = height;
 
-                    model.ScreenId = row.Cells["ScreenId"].Value.ToString();
+                    var ledId = 0;
+                    int.TryParse(row.Cells["LEDID"].Value.ToString(), out ledId);
+                    model.LEDID = ledId;
 
                     int marginTop = 0;
                     int.TryParse(row.Cells["MarginTop"].Value.ToString(), out marginTop);
@@ -112,6 +116,12 @@ namespace LoowooTech.LEDController.Server.UserControls
                     model.TextAlignment = (TextAlignment)Enum.Parse(model.TextAlignment.GetType(), row.Cells["TextAlignment"].Value.ToString());
                     model.TextAnimation = (TextAnimation)Enum.Parse(model.TextAnimation.GetType(), row.Cells["TextAnimation"].Value.ToString());
 
+                    //if (!model.HasCreated)
+                    //{
+                    //    //创建虚拟窗口，返回窗口虚拟ID
+                    //    model.LEDVirtualID = LEDAdapter.CreateWindow(model.MarginLeft, model.MarginTop, model.Width, model.Height);
+                    //}
+
                     list.Add(model);
                 }
                 catch { }
@@ -123,6 +133,11 @@ namespace LoowooTech.LEDController.Server.UserControls
         {
             SaveData();
             MessageBox.Show("保存成功");
+        }
+
+        private void btnCreateWindow_Click(object sender, EventArgs e)
+        {
+            LEDAdapterManager.Instance.CreateWindows();
         }
     }
 }

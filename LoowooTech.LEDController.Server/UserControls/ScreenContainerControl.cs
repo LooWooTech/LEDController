@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using LoowooTech.LEDController.Server.Managers;
 using LoowooTech.LEDController.Model;
+using LoowooTech.LEDController.Server;
 
 namespace LoowooTech.LEDController.Server.UserControls
 {
@@ -69,7 +70,11 @@ namespace LoowooTech.LEDController.Server.UserControls
                 try
                 {
                     var model = new LEDScreen();
-                    model.ID = row.Cells["ID"].Value.ToString();
+
+                    var id = 0;
+                    int.TryParse(row.Cells["ID"].Value.ToString(), out id);
+                    model.ID = id;
+
                     var width = 0;
                     int.TryParse(row.Cells["Width"].Value.ToString(), out width);
                     model.Width = width;
@@ -89,6 +94,11 @@ namespace LoowooTech.LEDController.Server.UserControls
         {
             SaveData();
             MessageBox.Show("保存成功");
+        }
+
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            LEDAdapterManager.Instance.OpenLEDScreens();
         }
     }
 }

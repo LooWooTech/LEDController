@@ -11,6 +11,7 @@ namespace LoowooTech.LEDController.Model
     {
         public ClientWindow()
         {
+            LEDVirtualID = -1;
             FontSize = 4;
             FontFamily = "宋体";
             TextAlignment = Model.TextAlignment.中;
@@ -19,7 +20,23 @@ namespace LoowooTech.LEDController.Model
 
         public string ID { get; set; }
 
-        public string ScreenId { get; set; }
+        /// <summary>
+        /// 虚拟窗口硬件ID
+        /// </summary>
+        public int LEDVirtualID { get; set; }
+
+        [Newtonsoft.Json.JsonIgnore]
+        public bool HasCreated
+        {
+            get
+            {
+                return LEDVirtualID > -1;
+            }
+        }
+        /// <summary>
+        /// LED物理屏幕ID
+        /// </summary>
+        public int LEDID { get; set; }
 
         public int Width { get; set; }
 

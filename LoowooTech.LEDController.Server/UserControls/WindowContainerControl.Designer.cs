@@ -47,6 +47,8 @@
             this.FontSize = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.TextAlignment = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.TextAnimation = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnCreateWindow = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -59,7 +61,9 @@
             this.toolStripSeparator1,
             this.btnSave,
             this.toolStripSeparator2,
-            this.btnDelete});
+            this.btnDelete,
+            this.toolStripSeparator3,
+            this.btnCreateWindow});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(580, 25);
@@ -219,6 +223,22 @@
             this.TextAnimation.Name = "TextAnimation";
             this.TextAnimation.Width = 80;
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnCreateWindow
+            // 
+            this.btnCreateWindow.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnCreateWindow.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateWindow.Image")));
+            this.btnCreateWindow.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCreateWindow.Name = "btnCreateWindow";
+            this.btnCreateWindow.Size = new System.Drawing.Size(60, 22);
+            this.btnCreateWindow.Text = "创建窗口";
+            this.btnCreateWindow.ToolTipText = "如果窗口已经创建，则会全部重新创建";
+            this.btnCreateWindow.Click += new System.EventHandler(this.btnCreateWindow_Click);
+            // 
             // WindowContainerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -256,5 +276,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn FontSize;
         private System.Windows.Forms.DataGridViewComboBoxColumn TextAlignment;
         private System.Windows.Forms.DataGridViewComboBoxColumn TextAnimation;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton btnCreateWindow;
     }
 }

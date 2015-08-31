@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 
-namespace LooWooTech.LEDController.Server
+namespace LoowooTech.LEDController.Server
 {
     /// <summary>
     /// 显示屏控制接口类
