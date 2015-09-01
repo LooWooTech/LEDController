@@ -93,7 +93,7 @@ namespace LoowooTech.LEDController.Client
                 //绑定下班时间下拉框
                 cbxOffworkTime.DataSource = offworkTimes.Select(e => new TimeSpan(e.Hour, e.Minute, 0).ToString()).ToArray();
                 //绑定文字窗口
-                labMessage.TextAlign = (ContentAlignment)((int)window.TextAlignment);
+                ledPanel1.Alignment = (ContentAlignment)((int)window.TextAlignment);
                 //判断下班按钮是否可见
                 offworkPanel.Visible = _offworkButton != null;
                 //加载其他按钮
@@ -139,8 +139,8 @@ namespace LoowooTech.LEDController.Client
         private void SendMessage(string msg)
         {
             var client = new APIServiceClient();
-            labMessage.Text = msg;
-            
+            ledPanel1.Text = msg;
+
             client.ShowText(ClientId, msg);
             client.Close();
         }

@@ -30,8 +30,6 @@
         {
             this.panel3 = new System.Windows.Forms.Panel();
             this.labTitle = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.labMessage = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSendMessage = new System.Windows.Forms.Button();
             this.cbxMessage = new System.Windows.Forms.ComboBox();
@@ -39,13 +37,13 @@
             this.btnOffwork = new System.Windows.Forms.Button();
             this.cbxOffworkTime = new System.Windows.Forms.ComboBox();
             this.buttonContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.ledPanel1 = new LoowooTech.LEDController.Client.LedPanel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ledPanel1 = new LoowooTech.LEDController.Client.LedPanel();
             this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.offworkPanel.SuspendLayout();
-            this.buttonContainer.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -71,27 +69,6 @@
             this.labTitle.TabIndex = 0;
             this.labTitle.Text = "LED屏信息发布";
             this.labTitle.DoubleClick += new System.EventHandler(this.labTitle_DoubleClick);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.labMessage);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 50);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(393, 130);
-            this.panel1.TabIndex = 7;
-            // 
-            // labMessage
-            // 
-            this.labMessage.BackColor = System.Drawing.Color.Black;
-            this.labMessage.Font = new System.Drawing.Font("KaiTi", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labMessage.ForeColor = System.Drawing.Color.Red;
-            this.labMessage.Location = new System.Drawing.Point(42, 14);
-            this.labMessage.Name = "labMessage";
-            this.labMessage.Size = new System.Drawing.Size(287, 100);
-            this.labMessage.TabIndex = 0;
-            this.labMessage.Text = "测试文字测试文字测试文字测试文字";
             // 
             // panel2
             // 
@@ -171,7 +148,6 @@
             // 
             // buttonContainer
             // 
-            this.buttonContainer.Controls.Add(this.ledPanel1);
             this.buttonContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonContainer.Location = new System.Drawing.Point(0, 260);
             this.buttonContainer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -179,15 +155,6 @@
             this.buttonContainer.Padding = new System.Windows.Forms.Padding(9, 0, 9, 0);
             this.buttonContainer.Size = new System.Drawing.Size(393, 137);
             this.buttonContainer.TabIndex = 12;
-            // 
-            // ledPanel1
-            // 
-            this.ledPanel1.Font = new System.Drawing.Font("SimSun", 10.5F);
-            this.ledPanel1.Location = new System.Drawing.Point(12, 3);
-            this.ledPanel1.Name = "ledPanel1";
-            this.ledPanel1.RowSpace = 0;
-            this.ledPanel1.Size = new System.Drawing.Size(368, 113);
-            this.ledPanel1.TabIndex = 1;
             // 
             // panel5
             // 
@@ -198,6 +165,25 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(393, 25);
             this.panel5.TabIndex = 13;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.ledPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 50);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(393, 130);
+            this.panel1.TabIndex = 7;
+            // 
+            // ledPanel1
+            // 
+            this.ledPanel1.Font = new System.Drawing.Font("SimSun", 10.5F);
+            this.ledPanel1.Location = new System.Drawing.Point(12, 9);
+            this.ledPanel1.Name = "ledPanel1";
+            this.ledPanel1.RowSpace = 0;
+            this.ledPanel1.Size = new System.Drawing.Size(368, 113);
+            this.ledPanel1.TabIndex = 2;
             // 
             // MainForm
             // 
@@ -219,10 +205,9 @@
             this.Text = "LED屏信息发布";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.offworkPanel.ResumeLayout(false);
-            this.buttonContainer.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -230,7 +215,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labTitle;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnSendMessage;
@@ -239,8 +223,8 @@
         private System.Windows.Forms.Button btnOffwork;
         private System.Windows.Forms.ComboBox cbxOffworkTime;
         private System.Windows.Forms.FlowLayoutPanel buttonContainer;
-        private System.Windows.Forms.Label labMessage;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel1;
         private LedPanel ledPanel1;
     }
 }

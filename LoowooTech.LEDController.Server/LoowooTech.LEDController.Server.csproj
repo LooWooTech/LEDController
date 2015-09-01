@@ -33,7 +33,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -93,12 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIService.cs" />
-    <Compile Include="Driver\EQ2008_DataStruct.cs" />
-    <Compile Include="Driver\LEDAdapter.cs" />
-    <Compile Include="Driver\LedAPI.cs" />
-    <Compile Include="Driver\Window.cs" />
     <Compile Include="IAPIService.cs" />
-    <Compile Include="ILEDAdapter.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,9 +163,6 @@
     <Compile Include="UserControls\WindowContainerControl.Designer.cs">
       <DependentUpon>WindowContainerControl.cs</DependentUpon>
     </Compile>
-    <Content Include="EQ2008_Dll.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +219,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LoowooTech.LEDController.LEDDriver\LoowooTech.LEDController.LEDDriver.csproj">
+      <Project>{06926dd4-fa1a-4c29-9638-239f35f25dc8}</Project>
+      <Name>LoowooTech.LEDController.LEDDriver</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LoowooTech.LEDController.Model\LoowooTech.LEDController.Model.csproj">
       <Project>{86bb4631-9b4f-4adb-9e02-39e191ec4062}</Project>
       <Name>LoowooTech.LEDController.Model</Name>
