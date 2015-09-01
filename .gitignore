@@ -14,3 +14,5 @@
 /LoowooTech.LEDController.Model/obj/Debug
 /LoowooTech.LEDController.Server/bin
 /LoowooTech.LEDController.Server.API/bin
+/LoowooTech.LEDController.LEDDriver/bin/Debug
+/LoowooTech.LEDController.LEDDriver/obj/Debug

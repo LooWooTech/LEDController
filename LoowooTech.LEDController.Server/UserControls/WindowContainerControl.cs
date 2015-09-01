@@ -16,7 +16,6 @@ namespace LoowooTech.LEDController.Server.UserControls
     public partial class WindowContainerControl : UserControl, IContainerControl
     {
         private DataManager DataManager = DataManager.Instance;
-        private ILEDAdapter LEDAdapter;
 
         public WindowContainerControl()
         {
