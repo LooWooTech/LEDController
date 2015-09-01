@@ -26,7 +26,7 @@ namespace LoowooTech.LEDController.Server.Managers
             {
                 if (!led.HasOpen)
                 {
-                    LEDAdapter.Open(led.ID);
+                    var ret = LEDAdapter.Open(led.ID);
                 }
             }
         }

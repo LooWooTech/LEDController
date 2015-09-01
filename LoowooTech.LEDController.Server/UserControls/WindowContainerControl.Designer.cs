@@ -66,62 +66,62 @@
             this.btnCreateWindow});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(580, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(580, 39);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btnAdd
             // 
-            this.btnAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.Image = global::LoowooTech.LEDController.Server.Properties.Resources.plus_alt;
+            this.btnAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(36, 22);
+            this.btnAdd.Size = new System.Drawing.Size(68, 36);
             this.btnAdd.Text = "添加";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
             // btnSave
             // 
-            this.btnSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.Image = global::LoowooTech.LEDController.Server.Properties.Resources.document_fill;
+            this.btnSave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(36, 22);
+            this.btnSave.Size = new System.Drawing.Size(68, 36);
             this.btnSave.Text = "保存";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
             // 
             // btnDelete
             // 
-            this.btnDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.Image = global::LoowooTech.LEDController.Server.Properties.Resources.x_alt;
+            this.btnDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(36, 22);
+            this.btnDelete.Size = new System.Drawing.Size(68, 36);
             this.btnDelete.Text = "删除";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 39);
             // 
             // btnCreateWindow
             // 
-            this.btnCreateWindow.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnCreateWindow.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateWindow.Image")));
+            this.btnCreateWindow.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnCreateWindow.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCreateWindow.Name = "btnCreateWindow";
-            this.btnCreateWindow.Size = new System.Drawing.Size(60, 22);
+            this.btnCreateWindow.Size = new System.Drawing.Size(76, 36);
             this.btnCreateWindow.Text = "创建窗口";
             this.btnCreateWindow.ToolTipText = "如果窗口已经创建，则会全部重新创建";
             this.btnCreateWindow.Click += new System.EventHandler(this.btnCreateWindow_Click);
@@ -130,9 +130,9 @@
             // 
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 25);
+            this.panel2.Location = new System.Drawing.Point(0, 39);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(580, 295);
+            this.panel2.Size = new System.Drawing.Size(580, 281);
             this.panel2.TabIndex = 3;
             // 
             // dataGridView1
@@ -160,7 +160,7 @@
             this.dataGridView1.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(2);
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(580, 295);
+            this.dataGridView1.Size = new System.Drawing.Size(580, 281);
             this.dataGridView1.TabIndex = 2;
             // 
             // ID
