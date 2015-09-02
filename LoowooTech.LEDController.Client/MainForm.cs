@@ -24,7 +24,7 @@ namespace LoowooTech.LEDController.Client
 
         private ClientButton _offworkButton;
         private ClientButton _countdownButton;
-        private readonly int CountDownNumber = 10;
+        private int _countDownNumber = 10;
 
         public MainForm()
         {
@@ -73,7 +73,7 @@ namespace LoowooTech.LEDController.Client
         private void BindData()
         {
 
-            
+
             var client = new APIServiceClient();
             var json = client.DownloadConfig(ClientId);
             var data = JsonConvert.DeserializeObject<JObject>(json);
@@ -110,7 +110,7 @@ namespace LoowooTech.LEDController.Client
                         Height = 32
                     };
                     switch (btn.Type)
-                    { 
+                    {
                         case ClientButtonType.故障:
                             control.BackColor = Color.Red;
                             break;
@@ -121,7 +121,7 @@ namespace LoowooTech.LEDController.Client
                     //按钮点击事件
                     control.Click += (sender, e) =>
                     {
-                        if (btn.Type == ClientButtonType.下班)
+                        if (btn.Type == ClientButtonType.倒计时)
                         {
                             btnCountDown_Click(sender, e);
                         }
@@ -136,13 +136,22 @@ namespace LoowooTech.LEDController.Client
             client.Close();
         }
 
-        private void SendMessage(string msg)
+        private bool SendMessage(string msg)
         {
-            var client = new APIServiceClient();
-            ledPanel1.Text = msg;
+            try
+            {
+                var client = new APIServiceClient();
+                ledPanel1.Text = msg;
 
-            client.ShowText(ClientId, msg);
-            client.Close();
+                client.ShowText(ClientId, msg);
+                client.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("出错了\n" + ex.Message);
+                return false;
+            }
+            return true;
         }
 
         private void labTitle_DoubleClick(object sender, EventArgs e)
@@ -153,10 +162,6 @@ namespace LoowooTech.LEDController.Client
 
         private void btnSendMessage_Click(object sender, EventArgs e)
         {
-            ledPanel1.Text = "请先选择或填写好内容，再点击发送按钮";
-            ledPanel1.Font = new Font("宋体", 9);
-            ledPanel1.Alignment = ContentAlignment.MiddleRight;
-
             if (string.IsNullOrEmpty(cbxMessage.Text))
             {
                 MessageBox.Show("请先选择或填写好内容，再点击发送按钮");
@@ -179,14 +184,15 @@ namespace LoowooTech.LEDController.Client
 
             var offworkTime = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, hour, minute, 0);
 
-            var lastMinutes = (DateTime.Now - offworkTime).TotalMinutes;
+            var lastMinutes = (offworkTime - DateTime.Now).TotalMinutes;
 
             SendMessage(_offworkButton.Message.Replace("{剩余分钟}", lastMinutes.ToString()));
         }
 
         private void btnCountDown_Click(object sender, EventArgs e)
         {
-            SendMessage(_countdownButton.Message.Replace("{剩余人数}", CountDownNumber.ToString()));
+            var result = SendMessage(_countdownButton.Message.Replace("{剩余人数}", _countDownNumber.ToString()));
+            if (result) _countDownNumber--;
         }
     }
 }
