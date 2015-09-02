@@ -42,7 +42,7 @@
             // 
             // toolStrip1
             // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnAdd,
             this.toolStripSeparator1,
@@ -57,9 +57,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Image = global::LoowooTech.LEDController.Server.Properties.Resources.plus_alt;
-            this.btnAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAdd.Image = global::LoowooTech.LEDController.Server.Properties.Resources.add;
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(68, 36);
             this.btnAdd.Text = "添加";
@@ -72,9 +70,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Image = global::LoowooTech.LEDController.Server.Properties.Resources.document_fill;
-            this.btnSave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSave.Image = global::LoowooTech.LEDController.Server.Properties.Resources.save;
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(68, 36);
             this.btnSave.Text = "保存";
@@ -87,9 +83,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Image = global::LoowooTech.LEDController.Server.Properties.Resources.x_alt;
-            this.btnDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDelete.Image = global::LoowooTech.LEDController.Server.Properties.Resources.delete;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(68, 36);
             this.btnDelete.Text = "删除";
