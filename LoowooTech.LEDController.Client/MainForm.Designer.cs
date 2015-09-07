@@ -191,11 +191,12 @@
             // 
             // ledPanel1
             // 
+            this.ledPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ledPanel1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(134)));
-            this.ledPanel1.Location = new System.Drawing.Point(12, 9);
+            this.ledPanel1.Location = new System.Drawing.Point(0, 0);
             this.ledPanel1.Name = "ledPanel1";
             this.ledPanel1.RowSpace = 0;
-            this.ledPanel1.Size = new System.Drawing.Size(368, 113);
+            this.ledPanel1.Size = new System.Drawing.Size(393, 130);
             this.ledPanel1.TabIndex = 2;
             // 
             // MainForm
