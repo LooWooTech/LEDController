@@ -19,8 +19,10 @@ namespace LoowooTech.LEDController.Client
         private readonly string ClientId = System.Configuration.ConfigurationManager.AppSettings["ClientId"];
 
         private Thread _bindDataThread;
-        private Thread _countdownThread;
-        private Thread _offworkThread;
+
+        public string UserNo { get; set; }
+
+        public string UserName { get; set; }
 
         private ClientButton _offworkButton;
         private ClientButton _countdownButton;
@@ -54,26 +56,30 @@ namespace LoowooTech.LEDController.Client
             _bindDataThread.Start();
         }
 
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            ledPanel1.Font = new Font(new FontFamily("宋体"), 9);
+            if (!string.IsNullOrEmpty(UserNo))
+            {
+                labInfo.Text = "工号：" + UserNo;
+                if (!string.IsNullOrEmpty(UserName))
+                {
+                    labInfo.Text += " 姓名：" + UserName;
+                }
+                SendMessage(labInfo.Text);
+            }
+        }
+
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
 
             _bindDataThread.Abort();
-
-            if (_offworkThread != null)
-            {
-                _offworkThread.Abort();
-            }
-            if (_countdownThread != null)
-            {
-                _countdownThread.Abort();
-            }
         }
 
         private void BindData()
         {
-
-
             var client = new APIServiceClient();
             var json = client.DownloadConfig(ClientId);
             var data = JsonConvert.DeserializeObject<JObject>(json);
@@ -84,7 +90,7 @@ namespace LoowooTech.LEDController.Client
             var offworkTimes = data["offworktimes"].ToObject<List<Model.OffworkTime>>();
 
             _offworkButton = buttons.FirstOrDefault(e => e.Type == Model.ClientButtonType.下班);
-            _countdownButton = buttons.FirstOrDefault(e => e.Type == Model.ClientButtonType.倒计时);
+            _countdownButton = buttons.FirstOrDefault(e => e.Type == Model.ClientButtonType.倒计数);
 
             this.BeginInvoke(new Action(() =>
             {
@@ -93,7 +99,9 @@ namespace LoowooTech.LEDController.Client
                 //绑定下班时间下拉框
                 cbxOffworkTime.DataSource = offworkTimes.Select(e => new TimeSpan(e.Hour, e.Minute, 0).ToString()).ToArray();
                 //绑定文字窗口
+                ledPanel1.ChangeLedSize(window.Width, window.Height);
                 ledPanel1.Alignment = (ContentAlignment)((int)window.TextAlignment);
+                ledPanel1.Font = new Font(new FontFamily(window.FontFamily), window.FontSize);
                 //判断下班按钮是否可见
                 offworkPanel.Visible = _offworkButton != null;
                 //加载其他按钮
@@ -114,14 +122,14 @@ namespace LoowooTech.LEDController.Client
                         case ClientButtonType.故障:
                             control.BackColor = Color.Red;
                             break;
-                        case ClientButtonType.倒计时:
+                        case ClientButtonType.倒计数:
                             control.BackColor = Color.Peru;
                             break;
                     }
                     //按钮点击事件
                     control.Click += (sender, e) =>
                     {
-                        if (btn.Type == ClientButtonType.倒计时)
+                        if (btn.Type == ClientButtonType.倒计数)
                         {
                             btnCountDown_Click(sender, e);
                         }
@@ -183,9 +191,13 @@ namespace LoowooTech.LEDController.Client
             var minute = int.Parse(arr[1]);
 
             var offworkTime = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, hour, minute, 0);
-
-            var lastMinutes = (offworkTime - DateTime.Now).TotalMinutes;
-
+            if (offworkTime < DateTime.Now)
+            {
+                MessageBox.Show("已经下班");
+                return;
+            }
+            var lastMinutes = (int)((offworkTime - DateTime.Now).TotalMinutes);
+            var lastHour = lastMinutes / 60;
             SendMessage(_offworkButton.Message.Replace("{剩余分钟}", lastMinutes.ToString()));
         }
 

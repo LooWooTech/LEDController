@@ -28,7 +28,7 @@ namespace LoowooTech.LEDController.Server.Managers
 
                 var query = db.Histories.AsQueryable();
 
-                if (string.IsNullOrEmpty(clientId))
+                if (!string.IsNullOrEmpty(clientId))
                 {
                     query = query.Where(e => e.ClientId == clientId);
                 }

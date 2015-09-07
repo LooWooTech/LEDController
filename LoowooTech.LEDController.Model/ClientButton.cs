@@ -13,7 +13,7 @@ namespace LoowooTech.LEDController.Model
         暂停,
         故障,
         下班,
-        倒计时
+        倒计数
     }
 
     public class ClientButton

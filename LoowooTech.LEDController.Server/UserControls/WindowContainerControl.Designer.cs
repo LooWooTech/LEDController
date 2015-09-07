@@ -28,26 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnCreateWindow = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LEDID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Height = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Width = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Height = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MarginLeft = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MarginTop = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FontFamily = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.FontSize = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.FontSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TextAlignment = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.TextAnimation = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.btnAdd = new System.Windows.Forms.ToolStripButton();
-            this.btnSave = new System.Windows.Forms.ToolStripButton();
-            this.btnDelete = new System.Windows.Forms.ToolStripButton();
-            this.btnCreateWindow = new System.Windows.Forms.ToolStripButton();
+            this.TextAnimation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -70,20 +71,55 @@
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = global::LoowooTech.LEDController.Server.Properties.Resources.add;
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(60, 28);
+            this.btnAdd.Text = "添加";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Image = global::LoowooTech.LEDController.Server.Properties.Resources.save;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(60, 28);
+            this.btnSave.Text = "保存";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = global::LoowooTech.LEDController.Server.Properties.Resources.delete;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(60, 28);
+            this.btnDelete.Text = "删除";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 31);
+            // 
+            // btnCreateWindow
+            // 
+            this.btnCreateWindow.Image = global::LoowooTech.LEDController.Server.Properties.Resources.create_screen;
+            this.btnCreateWindow.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnCreateWindow.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCreateWindow.Name = "btnCreateWindow";
+            this.btnCreateWindow.Size = new System.Drawing.Size(84, 28);
+            this.btnCreateWindow.Text = "创建窗口";
+            this.btnCreateWindow.ToolTipText = "如果窗口已经创建，则会全部重新创建";
+            this.btnCreateWindow.Click += new System.EventHandler(this.btnCreateWindow_Click);
             // 
             // panel2
             // 
@@ -104,8 +140,8 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.LEDID,
-            this.Height,
             this.Width,
+            this.Height,
             this.MarginLeft,
             this.MarginTop,
             this.FontFamily,
@@ -126,7 +162,7 @@
             // 
             this.ID.HeaderText = "窗口编号";
             this.ID.Name = "ID";
-            this.ID.Width = 80;
+            this.ID.Width = 90;
             // 
             // LEDID
             // 
@@ -134,34 +170,35 @@
             this.LEDID.Name = "LEDID";
             this.LEDID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.LEDID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.LEDID.Width = 80;
-            // 
-            // Height
-            // 
-            this.Height.HeaderText = "高度";
-            this.Height.Name = "Height";
-            this.Height.Width = 60;
+            this.LEDID.Width = 90;
             // 
             // Width
             // 
             this.Width.HeaderText = "宽度";
             this.Width.Name = "Width";
-            this.Width.Width = 60;
+            this.Width.Width = 70;
+            // 
+            // Height
+            // 
+            this.Height.HeaderText = "高度";
+            this.Height.Name = "Height";
+            this.Height.Width = 70;
             // 
             // MarginLeft
             // 
             this.MarginLeft.HeaderText = "左边距";
             this.MarginLeft.Name = "MarginLeft";
-            this.MarginLeft.Width = 70;
+            this.MarginLeft.Width = 80;
             // 
             // MarginTop
             // 
             this.MarginTop.HeaderText = "上边距";
             this.MarginTop.Name = "MarginTop";
-            this.MarginTop.Width = 70;
+            this.MarginTop.Width = 80;
             // 
             // FontFamily
             // 
+            this.FontFamily.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             this.FontFamily.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FontFamily.HeaderText = "字体";
             this.FontFamily.Items.AddRange(new object[] {
@@ -172,72 +209,28 @@
             // 
             // FontSize
             // 
-            this.FontSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FontSize.HeaderText = "字体大小";
-            this.FontSize.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
             this.FontSize.Name = "FontSize";
-            this.FontSize.Width = 80;
+            this.FontSize.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FontSize.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.FontSize.Width = 90;
             // 
             // TextAlignment
             // 
             this.TextAlignment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TextAlignment.HeaderText = "文字对齐";
             this.TextAlignment.Name = "TextAlignment";
-            this.TextAlignment.Width = 80;
+            this.TextAlignment.Width = 90;
             // 
             // TextAnimation
             // 
-            this.TextAnimation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            dataGridViewCellStyle1.NullValue = "1";
+            this.TextAnimation.DefaultCellStyle = dataGridViewCellStyle1;
             this.TextAnimation.HeaderText = "动画效果";
             this.TextAnimation.Name = "TextAnimation";
-            this.TextAnimation.Width = 80;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Image = global::LoowooTech.LEDController.Server.Properties.Resources.add;
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(60, 28);
-            this.btnAdd.Text = "添加";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Image = global::LoowooTech.LEDController.Server.Properties.Resources.save;
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(60, 28);
-            this.btnSave.Text = "保存";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Image = global::LoowooTech.LEDController.Server.Properties.Resources.delete;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(60, 28);
-            this.btnDelete.Text = "删除";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnCreateWindow
-            // 
-            this.btnCreateWindow.Image = global::LoowooTech.LEDController.Server.Properties.Resources.create_screen;
-            this.btnCreateWindow.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnCreateWindow.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCreateWindow.Name = "btnCreateWindow";
-            this.btnCreateWindow.Size = new System.Drawing.Size(84, 28);
-            this.btnCreateWindow.Text = "创建窗口";
-            this.btnCreateWindow.ToolTipText = "如果窗口已经创建，则会全部重新创建";
-            this.btnCreateWindow.Click += new System.EventHandler(this.btnCreateWindow_Click);
+            this.TextAnimation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.TextAnimation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.TextAnimation.Width = 90;
             // 
             // WindowContainerControl
             // 
@@ -270,13 +263,13 @@
         private System.Windows.Forms.ToolStripButton btnCreateWindow;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn LEDID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Height;
         private System.Windows.Forms.DataGridViewTextBoxColumn Width;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Height;
         private System.Windows.Forms.DataGridViewTextBoxColumn MarginLeft;
         private System.Windows.Forms.DataGridViewTextBoxColumn MarginTop;
         private System.Windows.Forms.DataGridViewComboBoxColumn FontFamily;
-        private System.Windows.Forms.DataGridViewComboBoxColumn FontSize;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FontSize;
         private System.Windows.Forms.DataGridViewComboBoxColumn TextAlignment;
-        private System.Windows.Forms.DataGridViewComboBoxColumn TextAnimation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TextAnimation;
     }
 }

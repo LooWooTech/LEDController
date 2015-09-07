@@ -11,11 +11,20 @@ namespace LoowooTech.LEDController.Client
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            var mainForm = new MainForm();
+            if (args.Length > 0)
+            {
+                mainForm.UserNo = args[0];
+                if (args.Length > 1)
+                {
+                    mainForm.UserName = args[1];
+                }
+            }
+            Application.Run(mainForm);
         }
     }
 }

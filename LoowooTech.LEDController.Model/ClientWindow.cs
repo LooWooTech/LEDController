@@ -15,7 +15,7 @@ namespace LoowooTech.LEDController.Model
             FontSize = 4;
             FontFamily = "宋体";
             TextAlignment = Model.TextAlignment.中;
-            TextAnimation = Model.TextAnimation.A;
+            TextAnimation = 1;
         }
 
         public string ID { get; set; }
@@ -48,7 +48,7 @@ namespace LoowooTech.LEDController.Model
 
         public TextAlignment TextAlignment { get; set; }
 
-        public TextAnimation TextAnimation { get; set; }
+        public int TextAnimation { get; set; }
 
         public string FontFamily { get; set; }
 
