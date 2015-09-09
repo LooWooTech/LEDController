@@ -118,12 +118,13 @@ namespace LoowooTech.LEDController.LEDDriver
                 {
                     var win = windows[windowId];
                     var f = win.Font;
-                    f.strFontName = font.Name;
+                    f.strFontName = "宋体";
                     f.bFontBold = font.Bold;
                     f.bFontItaic = font.Italic;
                     f.bFontUnderline = font.Underline;
                     f.iFontSize = (int)font.SizeInPoints;
                     f.iRowSpace = rowSpace;
+                    f.colorFont = 0xffffff;
                     switch (alignment)
                     {
                         case ContentAlignment.TopLeft:

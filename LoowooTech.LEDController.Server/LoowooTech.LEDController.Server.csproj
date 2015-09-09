@@ -167,9 +167,6 @@
     <None Include="Resources\plus_alt.png" />
     <None Include="Resources\x_alt.png" />
     <None Include="Resources\document_fill.png" />
-    <None Include="Resources\icon_plus_alt2.png" />
-    <None Include="Resources\icon_minus_alt2.png" />
-    <None Include="Resources\icon_floppy.png" />
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

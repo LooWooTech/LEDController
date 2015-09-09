@@ -60,7 +60,7 @@ namespace LoowooTech.LEDController.LEDDriver
                 Font = new User_FontSet
                 {
                     strFontName = "宋体",
-                    colorFont = (int)User_Color.Red,
+                    colorFont = (int)User_Color.White,
                     iFontSize = 16,
                     iAlignStyle = 1,
                     iVAlignerStyle = 1
@@ -69,9 +69,9 @@ namespace LoowooTech.LEDController.LEDDriver
                 {
                     iActionSpeed = int.Parse(ConfigurationManager.AppSettings["AnimationSpeed"]),
                     iActionType = 1,
-                    iHoldTime = 3600,
+                    iHoldTime = 20,
                     iClearActionType = 0,
-                    iClearSpeed = 0,
+                    iClearSpeed = 4,
                     iFrameTime = 20
                 }
             };
