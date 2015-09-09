@@ -224,6 +224,7 @@ namespace LoowooTech.LEDController.LEDDriver
                 text.PartInfo = w.Frame;
                 LedAPI.User_AddText(win.LedIndex, ref text, programId);
             }
+            LedAPI.User_SendToScreen(win.LedIndex);
         }
 
         
