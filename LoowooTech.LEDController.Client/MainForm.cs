@@ -100,7 +100,7 @@ namespace LoowooTech.LEDController.Client
                 cbxOffworkTime.DataSource = offworkTimes.Select(e => new TimeSpan(e.Hour, e.Minute, 0).ToString()).ToArray();
                 //绑定文字窗口
                 //ledPanel1.ChangeLedSize(300, 128);
-                ledPanel1.Alignment = (ContentAlignment)((int)window.TextAlignment);
+                ledPanel1.Alignment = (ContentAlignment)window.TextAlignment;
                 //ledPanel1.Font = new Font(new FontFamily(window.FontFamily), 9);
                 //判断下班按钮是否可见
                 offworkPanel.Visible = _offworkButton != null;
@@ -144,28 +144,35 @@ namespace LoowooTech.LEDController.Client
             client.Close();
         }
 
-        private bool SendMessage(string msg)
+        private void SendMessage(string msg)
         {
-            try
+            ledPanel1.Text = "发送中";
+            new Thread(() =>
             {
-                var client = new APIServiceClient();
-                ledPanel1.Text = msg;
-
-                client.ShowText(ClientId, msg);
-                client.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("出错了\n" + ex.Message);
-                return false;
-            }
-            return true;
+                try
+                {
+                    var client = new APIServiceClient();
+                    client.ShowText(ClientId, msg);
+                    ledPanel1.Invoke(new Action(() =>
+                    {
+                        ledPanel1.Text = msg;
+                    }));
+                    client.Close();
+                }
+                catch (Exception ex)
+                {
+                    ledPanel1.Invoke(new Action(() =>
+                    {
+                        ledPanel1.Text = "发送失败";
+                    }));
+                    MessageBox.Show("出错了\n" + ex.Message);
+                }
+            }).Start();
         }
 
         private void labTitle_DoubleClick(object sender, EventArgs e)
         {
-            var historyForm = new HistoryForm();
-            historyForm.Show();
+            BindData();
         }
 
         private void btnSendMessage_Click(object sender, EventArgs e)
@@ -203,8 +210,8 @@ namespace LoowooTech.LEDController.Client
 
         private void btnCountDown_Click(object sender, EventArgs e)
         {
-            var result = SendMessage(_countdownButton.Message.Replace("{剩余人数}", _countDownNumber.ToString()));
-            if (result) _countDownNumber--;
+            SendMessage(_countdownButton.Message.Replace("{剩余人数}", _countDownNumber.ToString()));
+            _countDownNumber--;
         }
     }
 }

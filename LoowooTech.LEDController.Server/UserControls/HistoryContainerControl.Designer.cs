@@ -64,7 +64,7 @@
             this.cbxClientId});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(583, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(583, 31);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -73,62 +73,62 @@
             this.btnHome.Image = global::LoowooTech.LEDController.Server.Properties.Resources.begin;
             this.btnHome.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(52, 22);
+            this.btnHome.Size = new System.Drawing.Size(60, 28);
             this.btnHome.Text = "首页";
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // btnPrev
             // 
             this.btnPrev.Image = global::LoowooTech.LEDController.Server.Properties.Resources.prev;
             this.btnPrev.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(64, 22);
+            this.btnPrev.Size = new System.Drawing.Size(72, 28);
             this.btnPrev.Text = "上一页";
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // btnNext
             // 
             this.btnNext.Image = global::LoowooTech.LEDController.Server.Properties.Resources.next;
             this.btnNext.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(64, 22);
+            this.btnNext.Size = new System.Drawing.Size(72, 28);
             this.btnNext.Text = "下一页";
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 31);
             // 
             // btnEnd
             // 
             this.btnEnd.Image = global::LoowooTech.LEDController.Server.Properties.Resources.end;
             this.btnEnd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEnd.Name = "btnEnd";
-            this.btnEnd.Size = new System.Drawing.Size(52, 22);
+            this.btnEnd.Size = new System.Drawing.Size(60, 28);
             this.btnEnd.Text = "尾页";
             this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 31);
             // 
             // txtPage
             // 
             this.txtPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPage.Name = "txtPage";
-            this.txtPage.Size = new System.Drawing.Size(50, 25);
+            this.txtPage.Size = new System.Drawing.Size(50, 31);
             this.txtPage.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPage_KeyUp);
             // 
             // btnGo
@@ -136,21 +136,21 @@
             this.btnGo.Image = global::LoowooTech.LEDController.Server.Properties.Resources.search;
             this.btnGo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(52, 22);
+            this.btnGo.Size = new System.Drawing.Size(60, 28);
             this.btnGo.Text = "跳转";
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 31);
             // 
             // cbxClientId
             // 
             this.cbxClientId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxClientId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxClientId.Name = "cbxClientId";
-            this.cbxClientId.Size = new System.Drawing.Size(80, 25);
+            this.cbxClientId.Size = new System.Drawing.Size(80, 31);
             // 
             // dataGridView1
             // 
@@ -161,13 +161,14 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 25);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 31);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(50);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(2);
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(583, 318);
+            this.dataGridView1.Size = new System.Drawing.Size(583, 312);
             this.dataGridView1.TabIndex = 4;
             // 
             // HistoryContainerControl

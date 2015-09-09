@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
+using System.Threading;
 
 namespace LoowooTech.LEDController.Server.API
 {
@@ -15,7 +17,7 @@ namespace LoowooTech.LEDController.Server.API
         public bool ShowText(string clientId, string content)
         {
             var client = DataManager.GetList<ClientWindow>().FirstOrDefault(e => e.ID == clientId);
-
+            LEDAdapterManager.LEDAdapter.SetFont(new Font(client.FontFamily, client.FontSize), (ContentAlignment)client.TextAlignment, 0, client.LEDVirtualID);
             //持续时间、编号类型
             LEDAdapterManager.LEDAdapter.SendContent(content, (int)client.TextAnimation, 10, client.LEDVirtualID);
 
