@@ -42,12 +42,12 @@
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.btnUser = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnHistory = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSystemConfig = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btnLogout = new System.Windows.Forms.ToolStripButton();
             this.container = new System.Windows.Forms.Panel();
-            this.btnHistory = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -169,6 +169,21 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
             // 
+            // btnHistory
+            // 
+            this.btnHistory.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnHistory.Image")));
+            this.btnHistory.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(69, 24);
+            this.btnHistory.Text = "历史记录";
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 27);
+            // 
             // btnSystemConfig
             // 
             this.btnSystemConfig.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -201,21 +216,6 @@
             this.container.Size = new System.Drawing.Size(704, 374);
             this.container.TabIndex = 1;
             // 
-            // btnHistory
-            // 
-            this.btnHistory.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnHistory.Image")));
-            this.btnHistory.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnHistory.Name = "btnHistory";
-            this.btnHistory.Size = new System.Drawing.Size(69, 24);
-            this.btnHistory.Text = "历史记录";
-            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 27);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -223,6 +223,7 @@
             this.ClientSize = new System.Drawing.Size(704, 401);
             this.Controls.Add(this.container);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "LED主控";
             this.toolStrip1.ResumeLayout(false);

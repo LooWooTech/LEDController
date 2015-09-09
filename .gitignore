@@ -16,3 +16,11 @@
 /LoowooTech.LEDController.Server.API/bin
 /LoowooTech.LEDController.LEDDriver/bin/Debug
 /LoowooTech.LEDController.LEDDriver/obj/Debug
+/LoowooTech.LEDController.Server/Resources
+/LoowooTech.LEDController.Client/bin/Release
+/LoowooTech.LEDController.LEDDriver/obj/Release
+/LoowooTech.LEDController.LEDDriver/bin/Release
+/LoowooTech.LEDController.Client/obj/Release
+/LoowooTech.LEDController.Model/bin/Release
+/LoowooTech.LEDController.Model/obj/Release
+/LoowooTech.LEDController.Server/obj/Release

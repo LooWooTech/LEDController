@@ -30,7 +30,7 @@ namespace LoowooTech.LEDController.Server.UserControls
 
             //(dataGridView1.Columns["LEDID"] as DataGridViewComboBoxColumn).DataSource = DataManager.GetList<LEDScreen>().Select(e => e.ID).ToArray();
             (dataGridView1.Columns["TextAlignment"] as DataGridViewComboBoxColumn).DataSource = Enum.GetNames(typeof(TextAlignment));
-            (dataGridView1.Columns["TextAnimation"] as DataGridViewComboBoxColumn).DataSource = Enum.GetNames(typeof(TextAnimation));
+            //(dataGridView1.Columns["TextAnimation"] as DataGridViewComboBoxColumn).DataSource = Enum.GetNames(typeof(TextAnimation));
 
 
             var data = DataManager.GetList<ClientWindow>();
@@ -113,7 +113,10 @@ namespace LoowooTech.LEDController.Server.UserControls
                     model.FontFamily = row.Cells["FontFamily"].Value.ToString();
 
                     model.TextAlignment = (TextAlignment)Enum.Parse(model.TextAlignment.GetType(), row.Cells["TextAlignment"].Value.ToString());
-                    model.TextAnimation = (TextAnimation)Enum.Parse(model.TextAnimation.GetType(), row.Cells["TextAnimation"].Value.ToString());
+
+                    int textAnimation = 0;
+                    int.TryParse(row.Cells["TextAnimation"].Value.ToString(), out textAnimation);
+                    model.TextAnimation = textAnimation == 0 ? 1 : textAnimation;
 
                     //if (!model.HasCreated)
                     //{

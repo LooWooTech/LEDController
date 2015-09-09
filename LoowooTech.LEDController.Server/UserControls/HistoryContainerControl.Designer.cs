@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoryContainerControl));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnHome = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -49,6 +48,7 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnHome,
             this.toolStripSeparator1,
@@ -70,11 +70,10 @@
             // 
             // btnHome
             // 
-            this.btnHome.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
+            this.btnHome.Image = global::LoowooTech.LEDController.Server.Properties.Resources.begin;
             this.btnHome.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(36, 22);
+            this.btnHome.Size = new System.Drawing.Size(52, 22);
             this.btnHome.Text = "首页";
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
@@ -85,11 +84,10 @@
             // 
             // btnPrev
             // 
-            this.btnPrev.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnPrev.Image = ((System.Drawing.Image)(resources.GetObject("btnPrev.Image")));
+            this.btnPrev.Image = global::LoowooTech.LEDController.Server.Properties.Resources.prev;
             this.btnPrev.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(48, 22);
+            this.btnPrev.Size = new System.Drawing.Size(64, 22);
             this.btnPrev.Text = "上一页";
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
@@ -100,11 +98,10 @@
             // 
             // btnNext
             // 
-            this.btnNext.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
+            this.btnNext.Image = global::LoowooTech.LEDController.Server.Properties.Resources.next;
             this.btnNext.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(48, 22);
+            this.btnNext.Size = new System.Drawing.Size(64, 22);
             this.btnNext.Text = "下一页";
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
@@ -115,11 +112,10 @@
             // 
             // btnEnd
             // 
-            this.btnEnd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnEnd.Image = ((System.Drawing.Image)(resources.GetObject("btnEnd.Image")));
+            this.btnEnd.Image = global::LoowooTech.LEDController.Server.Properties.Resources.end;
             this.btnEnd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEnd.Name = "btnEnd";
-            this.btnEnd.Size = new System.Drawing.Size(36, 22);
+            this.btnEnd.Size = new System.Drawing.Size(52, 22);
             this.btnEnd.Text = "尾页";
             this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
             // 
@@ -137,11 +133,10 @@
             // 
             // btnGo
             // 
-            this.btnGo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnGo.Image = ((System.Drawing.Image)(resources.GetObject("btnGo.Image")));
+            this.btnGo.Image = global::LoowooTech.LEDController.Server.Properties.Resources.search;
             this.btnGo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(36, 22);
+            this.btnGo.Size = new System.Drawing.Size(52, 22);
             this.btnGo.Text = "跳转";
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 

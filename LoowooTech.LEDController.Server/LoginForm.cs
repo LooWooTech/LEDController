@@ -101,5 +101,11 @@ namespace LoowooTech.LEDController.Server
         {
             Application.Exit();
         }
+
+        private void notifyIcon1_Click(object sender, EventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+        }
     }
 }

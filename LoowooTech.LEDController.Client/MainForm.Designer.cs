@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel3 = new System.Windows.Forms.Panel();
             this.labTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -38,11 +39,13 @@
             this.cbxOffworkTime = new System.Windows.Forms.ComboBox();
             this.buttonContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.labInfo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ledPanel1 = new LoowooTech.LEDController.Client.LedPanel();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.offworkPanel.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -159,12 +162,22 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel5.Controls.Add(this.labInfo);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.ForeColor = System.Drawing.Color.White;
             this.panel5.Location = new System.Drawing.Point(0, 372);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(393, 25);
             this.panel5.TabIndex = 13;
+            // 
+            // labInfo
+            // 
+            this.labInfo.AutoSize = true;
+            this.labInfo.Location = new System.Drawing.Point(1, 3);
+            this.labInfo.Name = "labInfo";
+            this.labInfo.Size = new System.Drawing.Size(51, 20);
+            this.labInfo.TabIndex = 0;
+            this.labInfo.Text = "工号：";
             // 
             // panel1
             // 
@@ -178,11 +191,12 @@
             // 
             // ledPanel1
             // 
-            this.ledPanel1.Font = new System.Drawing.Font("SimSun", 10.5F);
-            this.ledPanel1.Location = new System.Drawing.Point(12, 9);
+            this.ledPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ledPanel1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(134)));
+            this.ledPanel1.Location = new System.Drawing.Point(0, 0);
             this.ledPanel1.Name = "ledPanel1";
             this.ledPanel1.RowSpace = 0;
-            this.ledPanel1.Size = new System.Drawing.Size(368, 113);
+            this.ledPanel1.Size = new System.Drawing.Size(393, 130);
             this.ledPanel1.TabIndex = 2;
             // 
             // MainForm
@@ -198,15 +212,19 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainForm";
             this.Text = "LED屏信息发布";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.offworkPanel.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -226,6 +244,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel1;
         private LedPanel ledPanel1;
+        private System.Windows.Forms.Label labInfo;
     }
 }
 
