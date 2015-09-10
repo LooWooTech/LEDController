@@ -41,7 +41,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.labInfo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ledPanel1 = new LoowooTech.LEDController.Client.LedPanel();
+            this.ledPanel1 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.offworkPanel.SuspendLayout();
@@ -175,9 +175,8 @@
             this.labInfo.AutoSize = true;
             this.labInfo.Location = new System.Drawing.Point(1, 3);
             this.labInfo.Name = "labInfo";
-            this.labInfo.Size = new System.Drawing.Size(51, 20);
+            this.labInfo.Size = new System.Drawing.Size(0, 20);
             this.labInfo.TabIndex = 0;
-            this.labInfo.Text = "工号：";
             // 
             // panel1
             // 
@@ -191,13 +190,14 @@
             // 
             // ledPanel1
             // 
-            this.ledPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ledPanel1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(134)));
-            this.ledPanel1.Location = new System.Drawing.Point(0, 0);
+            this.ledPanel1.BackColor = System.Drawing.Color.Black;
+            this.ledPanel1.ForeColor = System.Drawing.Color.Red;
+            this.ledPanel1.Location = new System.Drawing.Point(33, 14);
             this.ledPanel1.Name = "ledPanel1";
-            this.ledPanel1.RowSpace = 0;
-            this.ledPanel1.Size = new System.Drawing.Size(393, 130);
-            this.ledPanel1.TabIndex = 2;
+            this.ledPanel1.Padding = new System.Windows.Forms.Padding(5);
+            this.ledPanel1.Size = new System.Drawing.Size(305, 97);
+            this.ledPanel1.TabIndex = 0;
+            this.ledPanel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
@@ -243,8 +243,8 @@
         private System.Windows.Forms.FlowLayoutPanel buttonContainer;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel1;
-        private LedPanel ledPanel1;
         private System.Windows.Forms.Label labInfo;
+        private System.Windows.Forms.Label ledPanel1;
     }
 }
 

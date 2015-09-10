@@ -59,7 +59,6 @@ namespace LoowooTech.LEDController.Client
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            ledPanel1.Font = new Font(new FontFamily("宋体"), 9);
             if (!string.IsNullOrEmpty(UserNo))
             {
                 labInfo.Text = "工号：" + UserNo;
@@ -100,8 +99,10 @@ namespace LoowooTech.LEDController.Client
                 cbxOffworkTime.DataSource = offworkTimes.Select(e => new TimeSpan(e.Hour, e.Minute, 0).ToString()).ToArray();
                 //绑定文字窗口
                 //ledPanel1.ChangeLedSize(300, 128);
-                ledPanel1.Alignment = (ContentAlignment)window.TextAlignment;
-                //ledPanel1.Font = new Font(new FontFamily(window.FontFamily), 9);
+                ledPanel1.Height = window.Height + 10;
+                ledPanel1.Width = window.Width + 10;
+                ledPanel1.TextAlign = (ContentAlignment)window.TextAlignment;
+                ledPanel1.Font = new Font(window.FontFamily, window.FontSize);
                 //判断下班按钮是否可见
                 offworkPanel.Visible = _offworkButton != null;
                 //加载其他按钮
