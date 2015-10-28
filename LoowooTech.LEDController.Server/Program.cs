@@ -1,12 +1,14 @@
-﻿using LoowooTech.LEDController.Server.API;
+﻿using LoowooTech.LEDController.Data;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
+
 using System.Threading;
 using System.Windows.Forms;
 using System.IO;
 using System.Text;
+using System.Runtime.Remoting.Channels.Tcp;
+using System.Runtime.Remoting.Channels;
+using System.Runtime.Remoting;
 
 namespace LoowooTech.LEDController.Server
 {
@@ -20,15 +22,27 @@ namespace LoowooTech.LEDController.Server
         static void Main()
         {
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-            var host = new ServiceHost(typeof(APIService));
-            host.Open();
 
-            Managers.LEDAdapterManager.Instance.OpenLEDScreens();
-            Managers.LEDAdapterManager.Instance.CreateWindows();
+            OpenService();
+
+            LEDAdapterManager.Instance.OpenLEDScreens();
+            LEDAdapterManager.Instance.CreateWindows();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());
+        }
+
+        private static void OpenService()
+        {
+            var servicePort = 0;
+            if (!int.TryParse(System.Configuration.ConfigurationManager.AppSettings["ServicePort"], out servicePort))
+            {
+                servicePort = 8080;
+            }
+            var channel = new TcpServerChannel(servicePort);
+            ChannelServices.RegisterChannel(channel, true);
+            RemotingConfiguration.RegisterWellKnownServiceType(typeof(LEDService), "LEDService", WellKnownObjectMode.SingleCall);
         }
 
         static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)

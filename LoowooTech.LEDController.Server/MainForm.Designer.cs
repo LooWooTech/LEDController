@@ -42,8 +42,6 @@
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.btnUser = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnHistory = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSystemConfig = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btnLogout = new System.Windows.Forms.ToolStripButton();
@@ -68,8 +66,6 @@
             this.toolStripSeparator7,
             this.btnUser,
             this.toolStripSeparator5,
-            this.btnHistory,
-            this.toolStripSeparator8,
             this.btnSystemConfig,
             this.toolStripSeparator6,
             this.btnLogout});
@@ -169,21 +165,6 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
             // 
-            // btnHistory
-            // 
-            this.btnHistory.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnHistory.Image")));
-            this.btnHistory.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnHistory.Name = "btnHistory";
-            this.btnHistory.Size = new System.Drawing.Size(69, 24);
-            this.btnHistory.Text = "历史记录";
-            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 27);
-            // 
             // btnSystemConfig
             // 
             this.btnSystemConfig.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -253,8 +234,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton btnOffworkTime;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripButton btnHistory;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
     }
 }
 

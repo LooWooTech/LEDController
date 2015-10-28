@@ -1,11 +1,11 @@
 ﻿using LoowooTech.LEDController.Model;
-using LoowooTech.LEDController.Server.Managers;
+using LoowooTech.LEDController.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
+
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -20,6 +20,7 @@ namespace LoowooTech.LEDController.Server
         }
 
         private static Admin CurrentUser;
+        private delegate void Action();
 
         public Admin GetCurrentUser()
         {
@@ -79,7 +80,15 @@ namespace LoowooTech.LEDController.Server
             {
                 return new Admin { Username = "temp", Password = "temp" };
             }
-            return admins.FirstOrDefault(e => e.Username.ToLower() == username.ToLower() && e.Password == password);
+
+            foreach (var e in admins)
+            {
+                if (e.Username.ToLower() == username.ToLower() && e.Password == password)
+                {
+                    return e;
+                }
+            }
+            return null;
         }
 
         private void LoginForm_Load(object sender, EventArgs e)

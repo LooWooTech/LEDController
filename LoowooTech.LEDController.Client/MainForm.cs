@@ -1,4 +1,4 @@
-﻿using LoowooTech.LEDController.Client.APIServiceReference;
+﻿using LoowooTech.LEDController.Data;
 using LoowooTech.LEDController.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -7,7 +7,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
+using System.Runtime.Remoting.Channels;
+using System.Runtime.Remoting.Channels.Tcp;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -17,6 +18,8 @@ namespace LoowooTech.LEDController.Client
     public partial class MainForm : Form
     {
         private readonly string ClientId = System.Configuration.ConfigurationManager.AppSettings["ClientId"];
+
+        private delegate void Action();
 
         private Thread _bindDataThread;
 
@@ -30,6 +33,7 @@ namespace LoowooTech.LEDController.Client
 
         public MainForm()
         {
+            ChannelServices.RegisterChannel(new TcpClientChannel(), true);
             if (string.IsNullOrEmpty(ClientId))
             {
                 MessageBox.Show("请在App.config里配置ClientId，再启动软件。");
@@ -77,9 +81,14 @@ namespace LoowooTech.LEDController.Client
             _bindDataThread.Abort();
         }
 
+        private LEDService GetServiceClient()
+        {
+            return (LEDService)Activator.GetObject(typeof(LEDService), System.Configuration.ConfigurationManager.AppSettings["ServiceUrl"]);
+        }
+
         private void BindData()
         {
-            var client = new APIServiceClient();
+            var client = GetServiceClient();
             var json = client.DownloadConfig(ClientId);
             var data = JsonConvert.DeserializeObject<JObject>(json);
 
@@ -88,15 +97,34 @@ namespace LoowooTech.LEDController.Client
             var window = data["window"].ToObject<Model.ClientWindow>();
             var offworkTimes = data["offworktimes"].ToObject<List<Model.OffworkTime>>();
 
-            _offworkButton = buttons.FirstOrDefault(e => e.Type == Model.ClientButtonType.下班);
-            _countdownButton = buttons.FirstOrDefault(e => e.Type == Model.ClientButtonType.倒计数);
+            foreach (var btn in buttons)
+            {
+                if (btn.Type == ClientButtonType.下班)
+                {
+                    _offworkButton = btn;
+                }
+                if (btn.Type == ClientButtonType.倒计数)
+                {
+                    _countdownButton = btn;
+                }
+            }
 
             this.BeginInvoke(new Action(() =>
             {
                 //绑定消息下拉框
-                cbxMessage.DataSource = messages.Select(e => e.Content).ToArray();
+                var msgDatasource = new List<string>();
+                foreach (var msg in messages)
+                {
+                    msgDatasource.Add(msg.Content);
+                }
+                cbxMessage.DataSource = msgDatasource;
                 //绑定下班时间下拉框
-                cbxOffworkTime.DataSource = offworkTimes.Select(e => new TimeSpan(e.Hour, e.Minute, 0).ToString()).ToArray();
+                var workTimeDatasource = new List<string>();
+                foreach (var time in offworkTimes)
+                {
+                    workTimeDatasource.Add(new TimeSpan(time.Hour, time.Minute, 0).ToString());
+                }
+                cbxOffworkTime.DataSource = workTimeDatasource;
                 //绑定文字窗口
                 //ledPanel1.ChangeLedSize(300, 128);
                 ledPanel1.Height = window.Height + 10;
@@ -107,8 +135,10 @@ namespace LoowooTech.LEDController.Client
                 offworkPanel.Visible = _offworkButton != null;
                 //加载其他按钮
                 buttonContainer.Controls.Clear();
-                foreach (var btn in buttons.Where(e => e.Type != ClientButtonType.下班))
+                foreach (var btn in buttons)
                 {
+                    if (btn.Type == ClientButtonType.下班) continue;
+
                     var control = new Button()
                     {
                         Text = btn.Type.ToString(),
@@ -142,7 +172,6 @@ namespace LoowooTech.LEDController.Client
                     buttonContainer.Controls.Add(control);
                 }
             }));
-            client.Close();
         }
 
         private void SendMessage(string msg)
@@ -152,13 +181,12 @@ namespace LoowooTech.LEDController.Client
             {
                 try
                 {
-                    var client = new APIServiceClient();
+                    var client = GetServiceClient();
                     client.ShowText(ClientId, msg);
                     ledPanel1.Invoke(new Action(() =>
                     {
                         ledPanel1.Text = msg;
                     }));
-                    client.Close();
                 }
                 catch (Exception ex)
                 {

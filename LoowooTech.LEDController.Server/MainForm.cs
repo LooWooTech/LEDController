@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
+
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -24,11 +24,13 @@ namespace LoowooTech.LEDController.Server
              AddContainer<MessageContainerControl>();
        }
 
+        private delegate void Action();
+
         private void AddContainer<T>() where T : UserControl, LoowooTech.LEDController.Server.UserControls.IContainerControl, new()
         {
             new Thread(() =>
             {
-                container.Invoke(new Action(() =>
+                container.Invoke(new Action(()=>
                 {
                     if (container.Controls.Count == 1)
                     {
@@ -86,10 +88,10 @@ namespace LoowooTech.LEDController.Server
             AddContainer<OffworkTimeContainerControl>();
         }
 
-        private void btnHistory_Click(object sender, EventArgs e)
-        {
-            AddContainer<HistoryContainerControl>();
-        }
+        //private void btnHistory_Click(object sender, EventArgs e)
+        //{
+        //    AddContainer<HistoryContainerControl>();
+        //}
 
         private void Logout()
         {

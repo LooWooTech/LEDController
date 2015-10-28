@@ -1,32 +1,23 @@
 ﻿using LoowooTech.LEDController.Model;
-using LoowooTech.LEDController.Server.Managers;
-using LoowooTech.LEDController.Server;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
-using System.Threading;
+using System.Text;
 
-namespace LoowooTech.LEDController.Server.API
+namespace LoowooTech.LEDController.Data
 {
-    public class APIService : IAPIService
+    public class LEDService : MarshalByRefObject
     {
         private DataManager DataManager = DataManager.Instance;
-        private HistoryManager HistoryManager = HistoryManager.Instance;
+
+
         public bool ShowText(string clientId, string content)
         {
-            var client = DataManager.GetList<ClientWindow>().FirstOrDefault(e => e.ID == clientId);
+            var client = DataManager.GetClientWindow(clientId);
             LEDAdapterManager.LEDAdapter.SetFont(new Font(client.FontFamily, client.FontSize), (ContentAlignment)client.TextAlignment, 0, client.LEDVirtualID);
             //持续时间、编号类型
             LEDAdapterManager.LEDAdapter.SendContent(content, (int)client.TextAnimation, 10, client.LEDVirtualID);
 
-            Console.WriteLine(content);
-            HistoryManager.Add(new History
-            {
-                ClientId = clientId,
-                Content = content
-            });
             return true;
         }
 
@@ -34,7 +25,7 @@ namespace LoowooTech.LEDController.Server.API
         {
             var messages = DataManager.GetList<Message>();
             var buttons = DataManager.GetList<ClientButton>();
-            var window = DataManager.GetList<ClientWindow>().FirstOrDefault(e => e.ID == clientId);
+            var window = DataManager.GetClientWindow(clientId);
             var offworktimes = DataManager.GetList<OffworkTime>();
             return Newtonsoft.Json.JsonConvert.SerializeObject(new
             {

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
+
 using System.Text;
 
 namespace LoowooTech.LEDController.LEDDriver
@@ -209,7 +209,14 @@ namespace LoowooTech.LEDController.LEDDriver
         private void RefreshWholeScreen(int activeWindowId)
         {
             var win = windows[activeWindowId];
-            var wins = windows.Values.Where(x=>x.LedIndex == win.LedIndex);
+            List<Window> wins = new List<Window>();
+            foreach (var w in windows.Values)
+            {
+                if (w.LedIndex == win.LedIndex)
+                {
+                    wins.Add(w);
+                }
+            }
             LedAPI.User_DelAllProgram(win.LedIndex);
             var programId = LedAPI.User_AddProgram(win.LedIndex, true, 0);
             foreach(var w in wins)
