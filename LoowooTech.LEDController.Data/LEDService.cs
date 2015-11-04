@@ -10,13 +10,22 @@ namespace LoowooTech.LEDController.Data
     {
         private DataManager DataManager = DataManager.Instance;
 
+        private ClientWindow GetWindow(string clientId)
+        {
+            var window = DataManager.GetClientWindow(clientId);
+            if (window.LEDVirtualID < 0)
+            {
+                LEDAdapterManager.Instance.CreateWindow(window);
+            }
+            return window;
+        }
 
         public bool ShowText(string clientId, string content)
         {
-            var client = DataManager.GetClientWindow(clientId);
-            LEDAdapterManager.LEDAdapter.SetFont(new Font(client.FontFamily, client.FontSize), (ContentAlignment)client.TextAlignment, 0, client.LEDVirtualID);
+            var window = GetWindow(clientId);
+            LEDAdapterManager.LEDAdapter.SetFont(new Font(window.FontFamily, window.FontSize), (ContentAlignment)window.TextAlignment, 0, window.LEDVirtualID);
             //持续时间、编号类型
-            LEDAdapterManager.LEDAdapter.SendContent(content, (int)client.TextAnimation, 10, client.LEDVirtualID);
+            LEDAdapterManager.LEDAdapter.SendContent(content, (int)window.TextAnimation, 10, window.LEDVirtualID);
 
             return true;
         }
@@ -34,6 +43,23 @@ namespace LoowooTech.LEDController.Data
                 window,
                 offworktimes
             });
+        }
+
+        public void ClearWindow(string clientId)
+        {
+            ShowText(clientId, null);
+        }
+
+        public void OpenWindow(string clientId)
+        {
+            var window = GetWindow(clientId);
+            LEDAdapterManager.LEDAdapter.Open(window.LEDVirtualID);
+        }
+
+        public void CloseWindow(string clientId)
+        {
+            var window = GetWindow(clientId);
+            LEDAdapterManager.LEDAdapter.Close(window.LEDVirtualID);
         }
     }
 }

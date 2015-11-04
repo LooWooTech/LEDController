@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using LoowooTech.LEDController.Data;
 using System.Threading;
+using LoowooTech.LEDController.Model;
 
 namespace LoowooTech.LEDController.Server.UserControls
 {
@@ -26,6 +27,8 @@ namespace LoowooTech.LEDController.Server.UserControls
             if (_hasBind) return;
             _hasBind = true;
 
+            //(dataGridView1.Columns["SendTime"] as DataGridViewComboBoxColumn).DataSource = Enum.GetNames(typeof(SendTime));
+
             var data = DataManager.GetList<Model.Message>();
             foreach (var msg in data)
             {
@@ -38,6 +41,7 @@ namespace LoowooTech.LEDController.Server.UserControls
             var rowIndex = dataGridView1.Rows.Add();
             var row = dataGridView1.Rows[rowIndex];
             row.Cells["Content"].Value = msg.Content;
+            row.Cells["AutoSend"].Value = msg.AutoSend;
             dataGridView1.CurrentCell = row.Cells[0];
             dataGridView1.BeginEdit(false);
         }
@@ -64,9 +68,18 @@ namespace LoowooTech.LEDController.Server.UserControls
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 var content = row.Cells["Content"];
+                var autoSend = row.Cells["AutoSend"] as DataGridViewCheckBoxCell;
                 if (content.Value != null)
                 {
-                    var msg = new Model.Message { Content = content.Value.ToString() };
+                    var msg = new Model.Message
+                    {
+                        Content = content.Value.ToString(),
+                        AutoSend = autoSend.Value.ToString() == "True",
+                    };
+                    if (msg.AutoSend)
+                    {
+                        msg.SendTime = SendTime.启动;//目前只支持启动
+                    }
                     list.Add(msg);
                 }
             }

@@ -30,6 +30,7 @@ namespace LoowooTech.LEDController.Client
         private ClientButton _offworkButton;
         private ClientButton _countdownButton;
         private int _countDownNumber = 10;
+        private bool _hasSendMessageOnStart;
 
         public MainForm()
         {
@@ -70,14 +71,14 @@ namespace LoowooTech.LEDController.Client
                 {
                     labInfo.Text += " 姓名：" + UserName;
                 }
-                SendMessage(labInfo.Text);
             }
         }
 
         protected override void OnClosed(EventArgs e)
         {
+            var client=GetServiceClient();
+            client.ClearWindow(ClientId);
             base.OnClosed(e);
-
             _bindDataThread.Abort();
         }
 
@@ -115,8 +116,22 @@ namespace LoowooTech.LEDController.Client
                 var msgDatasource = new List<string>();
                 foreach (var msg in messages)
                 {
-                    msgDatasource.Add(msg.Content);
+                    if (!string.IsNullOrEmpty(msg.Content))
+                    {
+                        var content = msg.Content.Replace("{工号}", UserNo);
+                        msgDatasource.Add(content);
+                        //发送启动消息
+                        if (!_hasSendMessageOnStart)
+                        {
+                            if (msg.AutoSend && msg.SendTime == SendTime.启动)
+                            {
+                                SendMessage(content);
+                            }
+                        }
+                    }
                 }
+                _hasSendMessageOnStart = true;
+
                 cbxMessage.DataSource = msgDatasource;
                 //绑定下班时间下拉框
                 var workTimeDatasource = new List<string>();
