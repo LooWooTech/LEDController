@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace LoowooTech.LEDController.Client
@@ -23,8 +23,41 @@ namespace LoowooTech.LEDController.Client
                 {
                     mainForm.UserName = args[1];
                 }
+                StartChecker();
             }
+
             Application.Run(mainForm);
+        }
+
+        private static Process process;
+
+        public static void StartChecker()
+        {
+            process = new Process();
+            ProcessStartInfo psi = new ProcessStartInfo(AppDomain.CurrentDomain.BaseDirectory + "ClientChecker.exe");
+            var clientId = System.Configuration.ConfigurationManager.AppSettings["ClientId"];
+            var serviceUrl = System.Configuration.ConfigurationManager.AppSettings["ServiceUrl"];
+            var appName = AppDomain.CurrentDomain.FriendlyName;
+            psi.Arguments = string.Join(" ", new[] { clientId, appName, serviceUrl });
+            //psi.CreateNoWindow = true;
+            //psi.UseShellExecute = false;
+            psi.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            process.StartInfo = psi;
+
+            // run the process
+            process.Start();
+        }
+
+        public static void StopChecker()
+        {
+            try
+            {
+                if (process != null)
+                {
+                    process.Kill();
+                }
+            }
+            catch { }
         }
     }
 }

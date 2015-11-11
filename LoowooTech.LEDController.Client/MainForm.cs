@@ -76,10 +76,17 @@ namespace LoowooTech.LEDController.Client
 
         protected override void OnClosed(EventArgs e)
         {
-            var client=GetServiceClient();
-            client.ClearWindow(ClientId);
-            base.OnClosed(e);
+            try
+            {
+                var client = GetServiceClient();
+                client.ClearWindow(ClientId);
+            }
+            catch
+            {
+            }
             _bindDataThread.Abort();
+            Program.StopChecker();
+            base.OnClosed(e);
         }
 
         private LEDService GetServiceClient()

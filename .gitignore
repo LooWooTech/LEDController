@@ -27,3 +27,6 @@
 /LoowooTech.LEDController.Client/bin
 /LoowooTech.LEDController.Data/bin
 /LoowooTech.LEDController.Data/obj
+/LoowooTech.LEDController.ClientCheck/bin/Release
+/LoowooTech.LEDController.ClientCheck/obj/Debug
+/LoowooTech.LEDController.ClientCheck/obj/Release

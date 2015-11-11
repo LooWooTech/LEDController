@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LoowooTech.LEDController.Client</RootNamespace>
-    <AssemblyName>LEDWindow</AssemblyName>
+    <AssemblyName>Doctor_Client</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -101,6 +101,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LoowooTech.LEDController.ClientCheck\LoowooTech.LEDController.ClientCheck.csproj">
+      <Project>{ac8703f6-e5a3-40c0-b85b-706c46eb0f13}</Project>
+      <Name>LoowooTech.LEDController.ClientCheck</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LoowooTech.LEDController.Data\LoowooTech.LEDController.Data.csproj">
       <Project>{c18bf81d-499b-4a05-a689-345017085321}</Project>
       <Name>LoowooTech.LEDController.Data</Name>
@@ -111,6 +115,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="appSettings.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
