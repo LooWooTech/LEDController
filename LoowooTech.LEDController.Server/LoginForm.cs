@@ -22,7 +22,7 @@ namespace LoowooTech.LEDController.Server
         private static Admin CurrentUser;
         private delegate void Action();
 
-        public Admin GetCurrentUser()
+        public static Admin GetCurrentUser()
         {
             return CurrentUser;
         }
@@ -78,7 +78,7 @@ namespace LoowooTech.LEDController.Server
             var admins = DataManager.GetList<Admin>();
             if (admins.Count == 0)
             {
-                return new Admin { Username = "temp", Password = "temp" };
+                return new Admin { Username = "temp", Password = "temp", Role = Role.系统管理员 };
             }
 
             foreach (var e in admins)

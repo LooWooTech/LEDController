@@ -1,10 +1,10 @@
-﻿using LoowooTech.LEDController.Server.UserControls;
+﻿using LoowooTech.LEDController.Model;
+using LoowooTech.LEDController.Server.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -21,8 +21,28 @@ namespace LoowooTech.LEDController.Server
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-             AddContainer<MessageContainerControl>();
-       }
+            var user = LoginForm.GetCurrentUser();
+            if (user != null)
+            {
+                switch (user.Role)
+                {
+                    case Role.前台管理员:
+                        btnLEDScreen.Visible = false;
+                        btnClientWindow.Visible = false;
+                        btnUser.Visible = false;
+                        btnSystemConfig.Visible = false;
+                        break;
+                    case Role.后台管理员:
+                        btnUser.Visible = false;
+                        btnSystemConfig.Visible = false;
+                        break;
+                    case Role.系统管理员:
+                        break;
+                }
+            }
+
+            AddContainer<MessageContainerControl>();
+        }
 
         private delegate void Action();
 
@@ -30,7 +50,7 @@ namespace LoowooTech.LEDController.Server
         {
             new Thread(() =>
             {
-                container.Invoke(new Action(()=>
+                container.Invoke(new Action(() =>
                 {
                     if (container.Controls.Count == 1)
                     {

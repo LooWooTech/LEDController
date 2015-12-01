@@ -99,10 +99,15 @@ namespace LoowooTech.LEDController.Client
             var client = GetServiceClient();
             var json = client.DownloadConfig(ClientId);
             var data = JsonConvert.DeserializeObject<JObject>(json);
+            var window = data["window"].ToObject<Model.ClientWindow>();
+            if (window == null)
+            {
+                MessageBox.Show("没有在Config文件里配置ClientId，或者服务器不存在此窗口。");
+                return;
+            }
 
             var messages = data["messages"].ToObject<List<Model.Message>>();
             var buttons = data["buttons"].ToObject<List<Model.ClientButton>>();
-            var window = data["window"].ToObject<Model.ClientWindow>();
             var offworkTimes = data["offworktimes"].ToObject<List<Model.OffworkTime>>();
 
             foreach (var btn in buttons)

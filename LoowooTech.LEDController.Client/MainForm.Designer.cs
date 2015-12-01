@@ -102,8 +102,9 @@
             // cbxMessage
             // 
             this.cbxMessage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxMessage.DropDownWidth = 370;
             this.cbxMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbxMessage.FormattingEnabled = true;
+            this.cbxMessage.ItemHeight = 20;
             this.cbxMessage.Location = new System.Drawing.Point(13, 6);
             this.cbxMessage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbxMessage.Name = "cbxMessage";
@@ -141,6 +142,7 @@
             // cbxOffworkTime
             // 
             this.cbxOffworkTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxOffworkTime.DropDownWidth = 370;
             this.cbxOffworkTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxOffworkTime.FormattingEnabled = true;
             this.cbxOffworkTime.Location = new System.Drawing.Point(13, 5);

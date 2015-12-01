@@ -51,11 +51,11 @@ namespace LoowooTech.LEDController.LEDDriver
         {
             lock (syncRoot)
             {
-                foreach (var w in windows.Values)
-                {
-                    if (Overlap(x, y, width, height, w.Frame))
-                        return -1;
-                }
+                //foreach (var w in windows.Values)
+                //{
+                //    if (Overlap(x, y, width, height, w.Frame))
+                //        return -1;
+                //}
 
                 var win = Window.CreateWindow(ledIndex, x, y, height, width);
                 windows.Add(win.Id, win);

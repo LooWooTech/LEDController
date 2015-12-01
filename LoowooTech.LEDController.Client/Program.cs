@@ -13,6 +13,20 @@ namespace LoowooTech.LEDController.Client
         [STAThread]
         static void Main(string[] args)
         {
+            var hasStarted = 0;
+            Process proc = Process.GetCurrentProcess();
+            foreach (var p in Process.GetProcesses())
+            {
+                if (p.ProcessName == proc.ProcessName)
+                {
+                    hasStarted++;
+                }
+            }
+            if (hasStarted > 1)
+            {
+                return;
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var mainForm = new MainForm();

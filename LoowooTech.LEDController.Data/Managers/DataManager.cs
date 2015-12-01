@@ -76,7 +76,7 @@ namespace LoowooTech.LEDController.Data
         {
             if (model.ID == 0)
             {
-                ExecuteSql("INSERT INTO Data (Type,CreateTime,Data) VALUE(@Type,@CreateTime,@Data)",
+                ExecuteSql("INSERT INTO Data (Type,CreateTime,Data) VALUES (@Type,@CreateTime,@Data)",
                     new SQLiteParameter("@Type", (int)model.Type),
                     new SQLiteParameter("@CreateTime", model.CreateTime),
                     new SQLiteParameter("@Data", model.DataJson)
@@ -96,15 +96,18 @@ namespace LoowooTech.LEDController.Data
         {
             var type = GetType<T>();
             var dt = GetDataTable(string.Format("SELECT * FROM [Data] WHERE Type = {0} LIMIT 0,1", (int)type));
-            var dr = dt.Rows[0];
-            return new Data
+            if (dt.Rows.Count > 0)
             {
-                ID = int.Parse(dr["ID"].ToString()),
-                CreateTime = DateTime.Parse(dr["CreateTime"].ToString()),
-                Type = (DataType)int.Parse(dr["Type"].ToString()),
-                DataJson = dr["Data"].ToString()
-            };
-
+                var dr = dt.Rows[0];
+                return new Data
+                {
+                    ID = int.Parse(dr["ID"].ToString()),
+                    CreateTime = DateTime.Parse(dr["CreateTime"].ToString()),
+                    Type = (DataType)int.Parse(dr["Type"].ToString()),
+                    DataJson = dr["Data"].ToString()
+                };
+            }
+            return null;
         }
 
         public List<T> GetList<T>()
