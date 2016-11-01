@@ -24,6 +24,7 @@ namespace LoowooTech.LEDController.LEDDriver
         /// <returns></returns>
         public bool Open(int ledIndex)
         {
+            return true;
             return LedAPI.User_OpenScreen(ledIndex);
         }
 
@@ -34,6 +35,7 @@ namespace LoowooTech.LEDController.LEDDriver
         /// <param name="ledIndex">屏幕的序号，从1开始</param>
         public void Close(int ledIndex)
         {
+            return;
             LedAPI.User_DelAllProgram(ledIndex);
             LedAPI.User_CloseScreen(ledIndex);
         }
@@ -49,6 +51,7 @@ namespace LoowooTech.LEDController.LEDDriver
         /// <returns>返回虚拟窗口id，小于0表示创建失败</returns>
         public int CreateWindow(int x, int y, int width, int height, int ledIndex)
         {
+            return 1;
             lock (syncRoot)
             {
                 foreach (var w in windows.Values)
@@ -65,6 +68,7 @@ namespace LoowooTech.LEDController.LEDDriver
 
         private static bool Overlap(int x, int y, int width, int height, User_PartInfo partInfo)
         {
+            
             var minx  =   Math.Max(x,   partInfo.iX);
             var miny = Math.Max(y, partInfo.iY);
             var maxx = Math.Min(x+width-1, partInfo.iX+partInfo.iWidth-1);
@@ -78,6 +82,7 @@ namespace LoowooTech.LEDController.LEDDriver
         /// <param name="windowId">虚拟窗口id</param>
         public void RemoveWindow(int windowId)
         {
+            return;
             lock (syncRoot)
             {
                 if (windows.ContainsKey(windowId))
@@ -97,6 +102,7 @@ namespace LoowooTech.LEDController.LEDDriver
         /// </summary>
         public void RemoveAllWindows()
         {
+            return;
             lock (syncRoot)
             {
                 windows.Clear();
@@ -112,6 +118,8 @@ namespace LoowooTech.LEDController.LEDDriver
         /// <param name="windowId">虚拟窗口id</param>
         public void SetFont(Font font, ContentAlignment alignment, int rowSpace, int windowId)
         {
+            return;
+            
             lock (syncRoot)
             {
                 if (windows.ContainsKey(windowId))
@@ -182,6 +190,7 @@ namespace LoowooTech.LEDController.LEDDriver
         /// <param name="windowId">虚拟窗口id</param>
         public void SendContent(string content, int animationType, int holdTime, int windowId)
         {
+            return;
             lock (syncRoot)
             {
                 if (windows.ContainsKey(windowId))
@@ -208,6 +217,7 @@ namespace LoowooTech.LEDController.LEDDriver
         /// <param name="activeWindowId"></param>
         private void RefreshWholeScreen(int activeWindowId)
         {
+            return;
             var win = windows[activeWindowId];
             var wins = windows.Values.Where(x=>x.LedIndex == win.LedIndex);
             LedAPI.User_DelAllProgram(win.LedIndex);
