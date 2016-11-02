@@ -109,6 +109,8 @@ namespace LoowooTech.LEDController.Server
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+            Environment.Exit(Environment.ExitCode);
+            Dispose();
         }
 
         private void notifyIcon1_Click(object sender, EventArgs e)

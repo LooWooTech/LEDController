@@ -139,7 +139,7 @@ namespace LoowooTech.LEDController.Server.UserControls
 
         private void btnCreateWindow_Click(object sender, EventArgs e)
         {
-            LEDAdapterManager.Instance.CreateWindows();
+            LEDManager.Instance.CreateWindows();
         }
     }
 }

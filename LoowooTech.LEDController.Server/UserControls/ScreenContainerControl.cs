@@ -98,7 +98,7 @@ namespace LoowooTech.LEDController.Server.UserControls
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            LEDAdapterManager.Instance.OpenLEDScreens();
+            LEDManager.Instance.OpenLEDScreens();
         }
     }
 }

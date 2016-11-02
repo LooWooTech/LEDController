@@ -25,8 +25,8 @@ namespace LoowooTech.LEDController.Server
 
             OpenService();
 
-            LEDAdapterManager.Instance.OpenLEDScreens();
-            LEDAdapterManager.Instance.CreateWindows();
+            LEDManager.Instance.OpenLEDScreens();
+            LEDManager.Instance.CreateWindows();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -43,6 +43,10 @@ namespace LoowooTech.LEDController.Server
             var channel = new TcpServerChannel(servicePort);
             ChannelServices.RegisterChannel(channel, true);
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(LEDService), "LEDService", WellKnownObjectMode.SingleCall);
+
+            //排队机的监听服务
+            var service2 = new QueueMachineService();
+            service2.Start();
         }
 
         static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
