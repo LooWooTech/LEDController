@@ -53,7 +53,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LEDManager.cs" />
-    <Compile Include="LEDService.cs" />
     <Compile Include="Managers\Data.cs" />
     <Compile Include="Managers\DataManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

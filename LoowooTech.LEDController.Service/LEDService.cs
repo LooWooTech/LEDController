@@ -1,11 +1,11 @@
-﻿using LoowooTech.LEDController.Model;
+﻿using LoowooTech.LEDController.Data;
+using LoowooTech.LEDController.Model;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Text;
 using System.Threading;
 
-namespace LoowooTech.LEDController.Data
+namespace LoowooTech.LEDController.Service
 {
     public class LEDService : MarshalByRefObject
     {

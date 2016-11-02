@@ -1,5 +1,5 @@
-﻿using LoowooTech.LEDController.Data;
-using LoowooTech.LEDController.Model;
+﻿using LoowooTech.LEDController.Model;
+using LoowooTech.LEDController.Service;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -34,7 +34,7 @@ namespace LoowooTech.LEDController.Client
 
         public MainForm()
         {
-            ChannelServices.RegisterChannel(new TcpClientChannel(), true);
+            ChannelServices.RegisterChannel(new TcpClientChannel(), false);
             if (string.IsNullOrEmpty(ClientId))
             {
                 MessageBox.Show("请在App.config里配置ClientId，再启动软件。");

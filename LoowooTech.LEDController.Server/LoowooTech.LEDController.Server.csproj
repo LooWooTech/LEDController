@@ -82,7 +82,6 @@
     <Compile Include="MessageServer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueueMachineService.cs" />
     <Compile Include="UserControls\AdminContainerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -194,6 +193,10 @@
     <ProjectReference Include="..\LoowooTech.LEDController.Model\LoowooTech.LEDController.Model.csproj">
       <Project>{86bb4631-9b4f-4adb-9e02-39e191ec4062}</Project>
       <Name>LoowooTech.LEDController.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LoowooTech.LEDController.Service\LoowooTech.LEDController.Service.csproj">
+      <Project>{16dd3171-d7d5-4d94-96a1-d26671b005a0}</Project>
+      <Name>LoowooTech.LEDController.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
