@@ -18,7 +18,14 @@ namespace LoowooTech.LEDController.Server
     {
         public Socket Socket { get; set; }
         public Thread Thread { get; set; }
+        public byte[] Buffer { get; set; }
+        public int ReceivedLength { get; set; }
         public bool Stop { get; set; }
+
+        public ClientStatus()
+        {
+            Buffer = new byte[1024];
+        }
     }
 
     public class MessageServer
@@ -139,41 +146,32 @@ namespace LoowooTech.LEDController.Server
             }
         }
 
-        private void GetMessage(Socket client)
+        private void GetMessage(ClientStatus status)
         {
+            var client = status.Socket;
             if (client.Poll(TimeOut, SelectMode.SelectRead))
             {
-                var buffer = new byte[1024];
-                var count = client.Receive(buffer);
-                if (count < 4)
+                var count = client.Receive(status.Buffer, status.ReceivedLength, status.Buffer.Length - status.ReceivedLength, SocketFlags.None);
+                if (count > 0)
                 {
-                    WriteLog(string.Format("[ERROR]接收消息头不完整:{0} bytes", count));
-                }
-                else
-                {
-                    var length = BitConverter.ToInt32(buffer, 0);
-                    if (length + 4 != count)
+                    status.ReceivedLength += count;
+
+                    var message = Encoding.UTF8.GetString(status.Buffer, 0, status.ReceivedLength);
+                    var pos = message.IndexOf('@');
+                    if (pos > -1)
                     {
-                        WriteLog(string.Format("[ERROR]接收消息体不完整: 指示{0},收到{1}", length + 4, count));
-                    }
-                    else
-                    {
-                        var message = Encoding.UTF8.GetString(buffer, 4, length);
-                        var tokens = message.Split('|');
-                        if (tokens.Length < 2)
+                        status.ReceivedLength = 0;
+                        var tokens = message.Substring(0, pos).Split('|');
+                        if (tokens.Length == 2)
                         {
-                            WriteLog(string.Format("[ERROR]接收消息体不完整: 指示{0},收到{1}", length + 4, count));
-                        }
-                        else
-                        {
-                            WriteLog(string.Format("[INFO]接收消息: {0}", message));
+                            WriteLog(string.Format("[INFO]接收消息: {0}|{1}", tokens[0], tokens[1]));
                             try
                             {
                                 OnMessageReceived(this, new MessageReceivedEventArgs { WinId = tokens[0], Text = tokens[1] });
                             }
                             catch (Exception ex)
                             {
-                                WriteLog("[ERROR]处理消息失败：" + ex.Message);
+                                WriteLog(string.Format("[ERROR]处理消息错误: {0}", ex.Message));
                             }
                         }
                     }
@@ -190,12 +188,12 @@ namespace LoowooTech.LEDController.Server
             {
                 try
                 {
-                    GetMessage(state.Socket);
+                    GetMessage(state);
                     Thread.Sleep(30);
                 }
                 catch (Exception ex)
                 {
-                    WriteLog("客户端错误:" + ex.Message);
+                    WriteLog("客户端错误:" + ex);
                     break;
                 }
             }
